@@ -3,7 +3,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 /**
  * The world where the wizard, the protagonist, lives in.
  * 
- * @author (your name) 
+ * Harithan Raveendran 
  * @version (a version number or a date)
  */
 public class MyWorld extends World
