@@ -1,7 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class MyWorld here.
+ * The world where the wizard, the protagonist, lives in.
  * 
  * @author (your name) 
  * @version (a version number or a date)
