@@ -1,10 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * The world where the wizard, the protagonist, lives in.
+ * The world where all the spaceships reside.
  * 
  * Harithan Raveendran 
- * @version (a version number or a date)
+ * @December 2022
  */
 public class MyWorld extends World
 {
