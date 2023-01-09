@@ -20,7 +20,7 @@ public class MyWorld extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1);
-        Label titleScoreLabel = new Label("Enemies Remaining:", 30);
+        Label titleScoreLabel = new Label("Enemies Remaining:", enemyCount);
         addObject(titleScoreLabel, 125, 45);
         
         scoreLabel = new Label(enemyCount, 30);
@@ -68,10 +68,10 @@ public class MyWorld extends World
 
     public void act()
     {
-        playerLaser pLaser = new playerLaser();
         if("space".equals(Greenfoot.getKey()))
         {
-                addObject(pLaser,pShip.pShipx,316);
+            playerLaser pLaser = new playerLaser();
+            addObject(pLaser,pShip.pShipx,316);
         }
     }
   
