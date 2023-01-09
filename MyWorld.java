@@ -8,7 +8,10 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class MyWorld extends World
 {
-
+    Label scoreLabel;
+    public int enemyCount = 30;
+    public PlayerShip pShip;
+  
     /**
      * Constructor for objects of class MyWorld.
      * 
@@ -17,11 +20,61 @@ public class MyWorld extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1);
-        PlayerShip pShip = new PlayerShip();
-        addObject(pShip, 300, 300);
+        Label titleScoreLabel = new Label("Enemies Remaining:", 30);
+        addObject(titleScoreLabel, 125, 45);
+        
+        scoreLabel = new Label(enemyCount, 30);
+        addObject(scoreLabel, 250, 45);
+        
+        pShip = new PlayerShip();
+        addObject(pShip, pShip.pShipx, pShip.pShipy);
+        
+        createShip1();            
+
         prepare();
+       
+    }
+
+    public void createShip1()
+    {
+        /**
+         * Creates an apple for the player to catch. The apple can appear
+         * anywhere randomly on the top of the map. Once it has been
+         * caught, another spawns in.
+         */
+        EnemyShip1 ship1 = new EnemyShip1();
+        int x = Greenfoot.getRandomNumber(600);
+        int y = 0;
+        addObject(ship1, x, y);
+
+    }
+    public void gameOver()
+    {
+        /**
+         * Creates a lose condition for the player. In other words, once the
+         * apple falls out of the player's reach, text saying "Game Over"
+         * appears on the screen.
+         */
+        Label gameOverLabel = new Label("Game Over", 100);
+        addObject(gameOverLabel, 300, 200);
     }
     
+    public void decreaseEnemyCount()
+    {
+        enemyCount--;
+        scoreLabel.setValue(enemyCount);
+    }
+    
+
+    public void act()
+    {
+        playerLaser pLaser = new playerLaser();
+        if("space".equals(Greenfoot.getKey()))
+        {
+                addObject(pLaser,pShip.pShipx,316);
+        }
+    }
+  
     /**
      * Prepare the world for the start of the program.
      * That is: create the initial objects and add them to the world.
@@ -108,8 +161,14 @@ public class MyWorld extends World
         extrasMyWorld10.setLocation(158,101);
         ExtrasMyWorld extrasMyWorld33 = new ExtrasMyWorld();
         addObject(extrasMyWorld33,158,101);
-        PlayerShip playerShip = new PlayerShip();
-        addObject(playerShip,297,356);
         extrasMyWorld3.setLocation(306,367);
+        ExtrasMyWorld3 extrasMyWorld34 = new ExtrasMyWorld3();
+        addObject(extrasMyWorld34,476,171);
+        ExtrasMyWorld2 extrasMyWorld210 = new ExtrasMyWorld2();
+        addObject(extrasMyWorld210,142,88);
+        ExtrasMyWorld4 extrasMyWorld42 = new ExtrasMyWorld4();
+        addObject(extrasMyWorld42,448,85);
+        
     }
+
 }
