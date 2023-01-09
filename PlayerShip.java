@@ -35,7 +35,7 @@ public class PlayerShip extends Actor
             move(5);
             pShipx += 5;
         }
-        destroyeShip();
+        destroyShip();
     }
     
     public void setPlayerLocation(int px, int py)
@@ -54,7 +54,7 @@ public class PlayerShip extends Actor
         return py;
     }
     
-   public void destroyeShip()
+   public void destroyShip()
     {
         if(isTouching(EnemyShip1.class))
         {
