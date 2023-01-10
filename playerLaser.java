@@ -13,7 +13,7 @@ public class playerLaser extends Actor
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public int enemyCount = 30;
-
+    public PlayerShip pShip;
     public void act()
     {
         int x = getX();
@@ -26,7 +26,7 @@ public class playerLaser extends Actor
         }while(isTouching(EnemyShip1.class));
 
         setLocation(x, y);
-        destroyeShip();
+        destroyShip();
         /**
          * Sets up the losing condition for the game. When the apple reaches
          * lower than the bottom of the world's height, text saying "Game
@@ -34,6 +34,13 @@ public class playerLaser extends Actor
          */
 
         MyWorld world = (MyWorld) getWorld();
+        
+        pShip = new PlayerShip();
+        if("space".equals(Greenfoot.getKey()))
+        {
+            playerLaser pLaser = new playerLaser();
+            addObject(pLaser,getPlayerLocationx,316);
+        }
 
         if(getY() <= -10)
         {
@@ -45,7 +52,7 @@ public class playerLaser extends Actor
                 
     }
 
-    public void destroyeShip()
+    public void destroyShip()
     {
         if(isTouching(EnemyShip1.class))
         {

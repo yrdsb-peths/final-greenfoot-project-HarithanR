@@ -35,6 +35,7 @@ public class PlayerShip extends Actor
             move(5);
             pShipx += 5;
         }
+
         destroyShip();
     }
     

@@ -68,11 +68,7 @@ public class MyWorld extends World
 
     public void act()
     {
-        if("space".equals(Greenfoot.getKey()))
-        {
-            playerLaser pLaser = new playerLaser();
-            addObject(pLaser,pShip.pShipx,316);
-        }
+
     }
   
     /**
