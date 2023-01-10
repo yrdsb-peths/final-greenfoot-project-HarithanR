@@ -13,7 +13,7 @@ public class PlayerLaser extends Actor
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public int enemyCount = 30;
-    public PlayerShip pShip;
+    
     public void act()
     {
         int x = getX();
@@ -29,11 +29,10 @@ public class PlayerLaser extends Actor
 
         MyWorld world = (MyWorld) getWorld();
         
-        pShip = new PlayerShip();
         if(Greenfoot.isKeyDown("space"))
         {
             PlayerLaser pLaser = new PlayerLaser();
-            addObject(pLaser,getPlayerLocationx,316);
+            world.addObject(pLaser,200,316);
         }
 
         if(getY() <= -10)
