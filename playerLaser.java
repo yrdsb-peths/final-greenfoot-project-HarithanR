@@ -19,12 +19,6 @@ public class playerLaser extends Actor
         int x = getX();
         int y  = getY();
 
-        do
-        {
-            y  = getY() - 2;
-
-        }while(isTouching(EnemyShip1.class));
-
         setLocation(x, y);
         destroyShip();
         /**
@@ -36,7 +30,7 @@ public class playerLaser extends Actor
         MyWorld world = (MyWorld) getWorld();
         
         pShip = new PlayerShip();
-        if("space".equals(Greenfoot.getKey()))
+        if(Greenfoot.isKeyDown("space"))
         {
             playerLaser pLaser = new playerLaser();
             addObject(pLaser,getPlayerLocationx,316);
