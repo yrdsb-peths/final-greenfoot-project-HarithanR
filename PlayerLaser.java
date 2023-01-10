@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class playerLaser extends Actor
+public class PlayerLaser extends Actor
 {
     /**
      * Act - do whatever the playerLaser wants to do. This method is called whenever
@@ -32,7 +32,7 @@ public class playerLaser extends Actor
         pShip = new PlayerShip();
         if(Greenfoot.isKeyDown("space"))
         {
-            playerLaser pLaser = new playerLaser();
+            PlayerLaser pLaser = new PlayerLaser();
             addObject(pLaser,getPlayerLocationx,316);
         }
 

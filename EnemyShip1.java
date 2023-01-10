@@ -26,9 +26,9 @@ public class EnemyShip1 extends Actor
     }
     public void destroy()
     {
-        if(isTouching(playerLaser.class))
+        if(isTouching(PlayerLaser.class))
         {
-            removeTouching(playerLaser.class);
+            removeTouching(PlayerLaser.class);
             MyWorld world = (MyWorld) getWorld();
             world.removeObject(this); 
             world.decreaseEnemyCount();
