@@ -24,7 +24,6 @@ public class PlayerLaser extends Actor
         {
            y = getY() - 4; 
         }while(getY() >= 400);
-        
         setLocation(x, y);
         
         /**
