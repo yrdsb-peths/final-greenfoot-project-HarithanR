@@ -1,3 +1,4 @@
+
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
@@ -18,40 +19,40 @@ public class PlayerLaser extends Actor
     {
         int x = getX();
         int y  = getY();
-
+        
+        do
+        {
+           y = getY() - 4; 
+        }while(getY() >= 400);
+        
         setLocation(x, y);
-        destroyShip();
+        
         /**
          * Sets up the losing condition for the game. When the apple reaches
          * lower than the bottom of the world's height, text saying "Game
          * Over" will be placed in the middle of the screen.
          */
-
-        MyWorld world = (MyWorld) getWorld();
-        
-        if(Greenfoot.isKeyDown("space"))
-        {
-            PlayerLaser pLaser = new PlayerLaser();
-            world.addObject(pLaser,200,316);
-        }
-
-        if(getY() <= -10)
-        {
-            world.gameOver();
-            world.removeObject(this);
-
-        }
-
-                
+                 
+        destroyShip();     
     }
-
+     
     public void destroyShip()
     {
         if(isTouching(EnemyShip1.class))
         {
             removeTouching(EnemyShip1.class);
             MyWorld world = (MyWorld) getWorld();
-            world.createShip1();             
+            world.removeObject(this);
+            world.decreaseEnemyCount();
+            world.createShip1();                        
+        }
+        else
+        {
+            MyWorld world = (MyWorld) getWorld();          
+            if(getY() ==  0)
+            {
+               world.removeObject(this);
+            }
         }
 
     }

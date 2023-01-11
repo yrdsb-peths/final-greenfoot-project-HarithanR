@@ -11,6 +11,7 @@ public class PlayerShip extends Actor
 {
     public static int pShipx = 297;
     public static int pShipy = 356;
+
     /** 
      * Act - do whatever the PlayerShip wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -24,19 +25,26 @@ public class PlayerShip extends Actor
     
     public void act()
     {
-        if(Greenfoot.isKeyDown("left"))
+        if(Greenfoot.isKeyDown("left") || Greenfoot.isKeyDown("a"))
         {
             move(-5);
             pShipx -= 5;
         }
         
-        else if(Greenfoot.isKeyDown("right"))
+        else if(Greenfoot.isKeyDown("right") || Greenfoot.isKeyDown("d"))
         {
             move(5);
             pShipx += 5;
         }
+        
+        
+        if(Greenfoot.isKeyDown("space"))
+        {
+            MyWorld world = (MyWorld) getWorld();
+            PlayerLaser pLaser = new PlayerLaser();
+            world.addObject(pLaser,pShipx,316);
+        }
 
-        destroyShip();
     }
     
     public void setPlayerLocation(int px, int py)
@@ -55,14 +63,6 @@ public class PlayerShip extends Actor
         return py;
     }
     
-   public void destroyShip()
-    {
-        if(isTouching(EnemyShip1.class))
-        {
-            removeTouching(EnemyShip1.class);
-            MyWorld world = (MyWorld) getWorld();
-                         
-        }
 
-    }
+    
 }

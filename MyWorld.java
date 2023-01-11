@@ -68,7 +68,7 @@ public class MyWorld extends World
 
     public void act()
     {
-
+  
     }
   
     /**
@@ -164,7 +164,10 @@ public class MyWorld extends World
         addObject(extrasMyWorld210,142,88);
         ExtrasMyWorld4 extrasMyWorld42 = new ExtrasMyWorld4();
         addObject(extrasMyWorld42,448,85);
-        
+
+        removeObject(extrasMyWorld210);
+        extrasMyWorld11.setLocation(145,297);
+        addObject(extrasMyWorld210,145,297);
     }
 
 }
