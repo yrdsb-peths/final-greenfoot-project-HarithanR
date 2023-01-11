@@ -9,7 +9,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class MyWorld extends World
 {
     Label scoreLabel;
+    //Label countLabel;
     public int enemyCount = 30;
+    public int score = 0;
     public PlayerShip pShip;
   
     /**
@@ -26,8 +28,15 @@ public class MyWorld extends World
         scoreLabel = new Label(enemyCount, 30);
         addObject(scoreLabel, 250, 45);
         
+        /*Label pointCountLabel = new Label("Score:", score);
+        addObject(pointCountLabel, 125, 75);
+        
+        countLabel = new Label(score, 30);
+        addObject(countLabel, 250, 75);*/
+        
         pShip = new PlayerShip();
         addObject(pShip, pShip.pShipx, pShip.pShipy);
+        //addObject(pShip, 300, pShip.pShipy);
         
         createShip1();            
 
@@ -168,6 +177,15 @@ public class MyWorld extends World
         removeObject(extrasMyWorld210);
         extrasMyWorld11.setLocation(145,297);
         addObject(extrasMyWorld210,145,297);
+        removeObject(extrasMyWorld210);
+        removeObject(extrasMyWorld42);
+        removeObject(extrasMyWorld34);
+        extrasMyWorld8.setLocation(219,186);
+        addObject(extrasMyWorld42,219,186);
+        extrasMyWorld2.setLocation(273,120);
+        ExtrasMyWorld4 extrasMyWorld43 = new ExtrasMyWorld4();
+        addObject(extrasMyWorld43,273,120);
+        removeObject(extrasMyWorld42);
     }
 
 }
