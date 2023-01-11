@@ -11,7 +11,8 @@ public class PlayerShip extends Actor
 {
     public static int pShipx = 297;
     public static int pShipy = 356;
-
+    boolean canShoot = true;
+    
     /** 
      * Act - do whatever the PlayerShip wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -38,8 +39,9 @@ public class PlayerShip extends Actor
         }
         
         
-        if(Greenfoot.isKeyDown("space"))
+        if(Greenfoot.isKeyDown("space") && canShoot)
         {
+            canShoot = false;
             MyWorld world = (MyWorld) getWorld();
             PlayerLaser pLaser = new PlayerLaser();
             world.addObject(pLaser,pShipx,316);
