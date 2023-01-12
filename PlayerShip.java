@@ -45,11 +45,10 @@ public class PlayerShip extends Actor
             world.addObject(pLaser,pShipx,316);
         }
         
-        if(pLaserCooldown.millisElapsed() > 1000)
+        if(pLaserCooldown.millisElapsed() > 550)
         {
             canShoot = true;
         }
-        
     }
     
     public void setPlayerLocation(int px, int py)
