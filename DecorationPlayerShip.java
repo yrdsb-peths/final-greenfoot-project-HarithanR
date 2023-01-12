@@ -14,6 +14,13 @@ public class DecorationPlayerShip extends Actor
      */
     public void act()
     {
-        // Add your action code here.
+       
+    }
+    
+    public DecorationPlayerShip()
+    {
+       GreenfootImage image = getImage();
+       image.scale(image.getWidth() - 580, image.getHeight() - 730);
+       setImage(image); 
     }
 }
