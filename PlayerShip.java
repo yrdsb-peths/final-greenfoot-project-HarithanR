@@ -12,7 +12,7 @@ public class PlayerShip extends Actor
     public static int pShipx = 297;
     public static int pShipy = 356;
     boolean canShoot = true;
-    
+    SimpleTimer pLaserCooldown = new SimpleTimer();
     /** 
      * Act - do whatever the PlayerShip wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -46,7 +46,12 @@ public class PlayerShip extends Actor
             PlayerLaser pLaser = new PlayerLaser();
             world.addObject(pLaser,pShipx,316);
         }
-
+        
+        if(pLaserCooldown.millisElapsed() < 1000)
+        {
+            canShoot = true;            
+        }
+        pLaserCooldown.mark();
     }
     
     public void setPlayerLocation(int px, int py)
