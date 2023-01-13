@@ -11,7 +11,7 @@ public class MyWorld extends World
     Label scoreLabel;
     public int enemyCount = 30;
     public PlayerShip pShip;
-  
+    EnemyShip1 ship1;
     /**
      * Constructor for objects of class MyWorld.
      * 
@@ -42,7 +42,7 @@ public class MyWorld extends World
          * anywhere randomly on the top of the map. Once it has been
          * caught, another spawns in.
          */
-        EnemyShip1 ship1 = new EnemyShip1();
+        ship1 = new EnemyShip1();
         int x = Greenfoot.getRandomNumber(600);
         int y = 0;
         addObject(ship1, x, y);
@@ -68,7 +68,13 @@ public class MyWorld extends World
 
     public void act()
     {
-  
+        Label victory = new Label("You win!", 100);
+        
+        if(enemyCount < 1)
+        {
+            addObject(victory, getWidth()/2, getHeight()/2);
+            removeObject(ship1);
+        }
     }
   
     /**
