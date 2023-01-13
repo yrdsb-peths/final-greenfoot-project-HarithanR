@@ -88,8 +88,8 @@ public class Titlescreen extends World
     {
         if(Greenfoot.isKeyDown("enter"))
         {
-            MyWorld level1 = new MyWorld();
-            Greenfoot.setWorld(level1);
+            MyWorld world = new MyWorld();
+            Greenfoot.setWorld(world);
         }
     }
 }

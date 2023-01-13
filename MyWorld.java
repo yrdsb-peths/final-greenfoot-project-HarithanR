@@ -9,10 +9,12 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class MyWorld extends World
 {
     Label scoreLabel;
-    public int enemyCount = 2;
+    public int enemyCount = 60;
     public PlayerShip pShip;
     EnemyShip1 ship1;
-    int level = 1;
+    EnemyShip2 ship2;
+    int difficulty = 1;
+    MyWorld world = new MyWorld();
     /**
      * Constructor for objects of class MyWorld.
      * 
@@ -30,24 +32,35 @@ public class MyWorld extends World
         pShip = new PlayerShip();
         addObject(pShip, pShip.pShipx, pShip.pShipy);
         
-        createShip1();            
+        createShip();            
 
         prepare();
        
     }
 
-    public void createShip1()
+    public void createShip()
     {
         /**
          * Creates an apple for the player to catch. The apple can appear
          * anywhere randomly on the top of the map. Once it has been
          * caught, another spawns in.
          */
-        ship1 = new EnemyShip1();
-        int x = Greenfoot.getRandomNumber(600);
-        int y = 0;
-        addObject(ship1, x, y);
-
+        if(difficulty == 1)
+        {
+            ship1 = new EnemyShip1();
+            int x = Greenfoot.getRandomNumber(600);
+            int y = 0;
+            addObject(ship1, x, y);
+        }
+        
+        else if(difficulty == 2)
+        {
+            removeObject(ship1);
+            ship2 = new EnemyShip2();
+            int x = Greenfoot.getRandomNumber(600);
+            int y = 0;
+            addObject(ship2, x, y);
+        }
     }
     public void gameOver()
     {
@@ -70,17 +83,10 @@ public class MyWorld extends World
     public void act()
     {
         Label victory = new Label("You win!", 100);
-        Label victory2 = new Label("Press enter to go to the next level", 25);
-        if(enemyCount < 1)
+        Label victory2 = new Label("Press shift to go to the next level", 25);
+        if(enemyCount < 60 && enemyCount > 20)
         {
-            addObject(victory, getWidth()/2, getHeight()/2);
-            addObject(victory2, getWidth()/2, 250);
-            removeObject(ship1);
-            if(Greenfoot.isKeyDown("enter"))
-            {
-                MyWorld2 level2 = new MyWorld2();
-                Greenfoot.setWorld(level2);
-            }
+            difficulty = 2;
         }
     }
   

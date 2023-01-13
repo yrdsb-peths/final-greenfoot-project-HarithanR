@@ -41,7 +41,7 @@ public class EnemyShip1 extends Actor
             MyWorld world = (MyWorld) getWorld();
             world.removeObject(this);
             world.decreaseEnemyCount();
-            world.createShip1();             
+            world.createShip();             
         }
     }
     
