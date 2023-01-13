@@ -25,14 +25,14 @@ public class PlayerShip extends Actor
     {
         if(Greenfoot.isKeyDown("left") || Greenfoot.isKeyDown("a"))
         {
-            move(-5);
-            pShipx -= 5;
+            move(-8);
+            pShipx -= 8;
         }
         
         else if(Greenfoot.isKeyDown("right") || Greenfoot.isKeyDown("d"))
         {
-            move(5);
-            pShipx += 5;
+            move(8);
+            pShipx += 8;
         }
         
         

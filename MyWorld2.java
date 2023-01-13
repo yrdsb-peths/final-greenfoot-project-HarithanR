@@ -1,22 +1,22 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * The world where all the spaceships reside.
+ * Write a description of class MyWorld2 here.
  * 
- * Harithan Raveendran 
- * @December 2022
+ * @author (your name) 
+ * @version (a version number or a date)
  */
-public class MyWorld extends World
+public class MyWorld2 extends World
 {
     Label scoreLabel;
     public int enemyCount = 30;
     public PlayerShip pShip;
-    EnemyShip1 ship1;
+    EnemyShip2 ship2;
     /**
      * Constructor for objects of class MyWorld.
      * 
      */
-    public MyWorld()
+    public MyWorld2()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1);
@@ -29,23 +29,23 @@ public class MyWorld extends World
         pShip = new PlayerShip();
         addObject(pShip, pShip.pShipx, pShip.pShipy);
         
-        createShip1();            
+        createShip2();            
 
         prepare();
        
     }
 
-    public void createShip1()
+    public void createShip2()
     {
         /**
          * Creates an apple for the player to catch. The apple can appear
          * anywhere randomly on the top of the map. Once it has been
          * caught, another spawns in.
          */
-        ship1 = new EnemyShip1();
+        ship2 = new EnemyShip2();
         int x = Greenfoot.getRandomNumber(600);
         int y = 0;
-        addObject(ship1, x, y);
+        addObject(ship2, x, y);
 
     }
     public void gameOver()
@@ -69,17 +69,11 @@ public class MyWorld extends World
     public void act()
     {
         Label victory = new Label("You win!", 100);
-        Label victory2 = new Label("Press enter to go to the next level", 25);
+        
         if(enemyCount < 1)
         {
             addObject(victory, getWidth()/2, getHeight()/2);
-            addObject(victory2, getWidth()/2, 250);
-            removeObject(ship1);
-            if(Greenfoot.isKeyDown("enter"))
-            {
-                MyWorld2 level2 = new MyWorld2();
-                Greenfoot.setWorld(level2);
-            }
+            removeObject(ship2);
         }
     }
   
