@@ -9,9 +9,10 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class MyWorld extends World
 {
     Label scoreLabel;
-    public int enemyCount = 30;
+    public int enemyCount = 2;
     public PlayerShip pShip;
     EnemyShip1 ship1;
+    int level = 1;
     /**
      * Constructor for objects of class MyWorld.
      * 
