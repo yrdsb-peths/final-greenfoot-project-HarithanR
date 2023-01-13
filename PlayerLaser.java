@@ -46,6 +46,16 @@ public class PlayerLaser extends Actor
             world.decreaseEnemyCount();
             world.createShip1();                        
         }
+        
+        else if(isTouching(EnemyShip2.class))
+        {
+           removeTouching(EnemyShip2.class);
+           MyWorld2 world2 = (MyWorld2) getWorld();
+           world2.removeObject(this);
+           world2.decreaseEnemyCount();
+           world2.createShip2();   
+        }
+        
         else
         {
             MyWorld world = (MyWorld) getWorld();          

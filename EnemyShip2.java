@@ -15,14 +15,14 @@ public class EnemyShip2 extends Actor
     public EnemyShip2()
     {
        GreenfootImage image = getImage();
-       image.scale(image.getWidth() - 225, image.getHeight() - 225);
+       image.scale(image.getWidth() - 75, image.getHeight() - 75);
        setImage(image);
     }
     
     public void act()
     {
-        setLocation(getX(), getY() + 4);
-        destroy();
+        setLocation(getX(), getY() + 3);
+        destroy2();
         /*
         MyWorld world = (MyWorld) getWorld();
         if(getY() >= world.getHeight())
@@ -32,16 +32,16 @@ public class EnemyShip2 extends Actor
         } 
         */
     }
-    public void destroy()
+    public void destroy2()
     {
 
         if(isTouching(PlayerLaser.class))
         {
             removeTouching(PlayerLaser.class);
-            MyWorld world = (MyWorld) getWorld();
-            world.removeObject(this);
-            world.decreaseEnemyCount();
-            world.createShip1();             
+            MyWorld2 world2 = (MyWorld2) getWorld();
+            world2.removeObject(this);
+            world2.decreaseEnemyCount();
+            world2.createShip2();             
         }
     }
     
