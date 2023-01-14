@@ -21,16 +21,16 @@ public class EnemyShip2 extends Actor
     
     public void act()
     {
-        setLocation(getX(), getY() + 3);
+        setLocation(getX(), getY() + 4);
         destroy2();
-        /*
-        MyWorld world = (MyWorld) getWorld();
+        
+        /*MyWorld world = (MyWorld) getWorld();
         if(getY() >= world.getHeight())
         {
-            world.gameOver();
-            world.removeObject(this);
-        } 
-        */
+            //world.removeObject(this);
+            world.decreaseLife();
+        }*/ 
+        
     }
     public void destroy2()
     {
@@ -40,9 +40,11 @@ public class EnemyShip2 extends Actor
             removeTouching(PlayerLaser.class);
             MyWorld world = (MyWorld) getWorld();
             world.removeObject(this);
-            world.decreaseEnemyCount();
+            world.increaseScoreCount();
             world.createShip();             
         }
+        
+        
     }
     
 }

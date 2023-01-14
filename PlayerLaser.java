@@ -43,7 +43,7 @@ public class PlayerLaser extends Actor
             removeTouching(EnemyShip1.class);
             MyWorld world = (MyWorld) getWorld();
             world.removeObject(this);
-            world.decreaseEnemyCount();
+            world.increaseScoreCount();
             world.createShip();                        
         }
         
@@ -52,7 +52,7 @@ public class PlayerLaser extends Actor
            removeTouching(EnemyShip2.class);
            MyWorld world = (MyWorld) getWorld();
            world.removeObject(this);
-           world.decreaseEnemyCount();
+           world.increaseScoreCount();
            world.createShip();   
         }
         
