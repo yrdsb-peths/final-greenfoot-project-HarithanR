@@ -40,7 +40,7 @@ public class EnemyShip2 extends Actor
             removeTouching(PlayerLaser.class);
             MyWorld world = (MyWorld) getWorld();
             world.removeObject(this);
-            world.decreaseEnemyCount();
+            world.increaseScore2();
             world.createShip();             
         }
     }

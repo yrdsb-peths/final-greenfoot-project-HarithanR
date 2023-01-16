@@ -10,6 +10,7 @@ public class MyWorld extends World
 {
     Label scoreLabel;
     public int enemyCount = 60;
+    public int score = 0;
     public PlayerShip pShip;
     EnemyShip1 ship1;
     EnemyShip2 ship2;
@@ -23,10 +24,16 @@ public class MyWorld extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1);
-        Label titleScoreLabel = new Label("Enemies Remaining:", enemyCount);
+        /*Label titleScoreLabel = new Label("Enemies Remaining:", 20);
+        addObject(titleScoreLabel, 125, 45);*/
+        
+        /*scoreLabel = new Label(enemyCount, 20);
+        addObject(scoreLabel, 250, 45);*/
+        
+        Label titleScoreLabel = new Label("Score:", 20);
         addObject(titleScoreLabel, 125, 45);
         
-        scoreLabel = new Label(enemyCount, 30);
+        scoreLabel = new Label(score, 20);
         addObject(scoreLabel, 250, 45);
         
         pShip = new PlayerShip();
@@ -73,18 +80,27 @@ public class MyWorld extends World
         addObject(gameOverLabel, 300, 200);
     }
     
-    public void decreaseEnemyCount()
+    /*public void decreaseEnemyCount()
     {
         enemyCount--;
         scoreLabel.setValue(enemyCount);
+    }*/
+    
+    public void increaseScore()
+    {
+        score += 200;
     }
     
+    public void increaseScore2()
+    {
+        score += 500;
+    }
 
     public void act()
     {
         Label victory = new Label("You win!", 100);
         Label victory2 = new Label("Press shift to go to the next level", 25);
-        if(enemyCount < 60 && enemyCount > 20)
+        if(score == 200)
         {
             difficulty = 2;
         }
