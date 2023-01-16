@@ -15,7 +15,6 @@ public class MyWorld extends World
     EnemyShip1 ship1;
     EnemyShip2 ship2;
     int difficulty = 1;
-    MyWorld world = new MyWorld();
     /**
      * Constructor for objects of class MyWorld.
      * 
@@ -24,17 +23,13 @@ public class MyWorld extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1);
-        /*Label titleScoreLabel = new Label("Enemies Remaining:", 20);
-        addObject(titleScoreLabel, 125, 45);*/
+       
         
-        /*scoreLabel = new Label(enemyCount, 20);
-        addObject(scoreLabel, 250, 45);*/
+        Label titleScoreLabel = new Label("Score:", 30);
+        addObject(titleScoreLabel, 75, 45);
         
-        Label titleScoreLabel = new Label("Score:", 20);
-        addObject(titleScoreLabel, 125, 45);
-        
-        scoreLabel = new Label(score, 20);
-        addObject(scoreLabel, 250, 45);
+        scoreLabel = new Label(score, 30);
+        addObject(scoreLabel, 125, 45);
         
         pShip = new PlayerShip();
         addObject(pShip, pShip.pShipx, pShip.pShipy);
@@ -80,20 +75,17 @@ public class MyWorld extends World
         addObject(gameOverLabel, 300, 200);
     }
     
-    /*public void decreaseEnemyCount()
-    {
-        enemyCount--;
-        scoreLabel.setValue(enemyCount);
-    }*/
-    
+   
     public void increaseScore()
     {
         score += 200;
+        scoreLabel.setValue(score);
     }
     
     public void increaseScore2()
     {
         score += 500;
+        scoreLabel.setValue(score);
     }
 
     public void act()
