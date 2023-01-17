@@ -9,6 +9,10 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class MyWorld extends World
 {
     Label scoreLabel;
+ dev2
+    public int enemyCount = 60;
+    public int score = 0;
+
  Dev3
     Label lifeLabel;
     public int enemyCount = 2;
@@ -19,12 +23,16 @@ public class MyWorld extends World
     public int enemyCount = 30;
     public int score = 0;
  main
+ main
     public PlayerShip pShip;
     EnemyShip1 ship1;
     EnemyShip2 ship2;
     int difficulty = 1;
+ dev2
+
     public int lives = 3;
     
+ main
     /**
      * Constructor for objects of class MyWorld.
      * 
@@ -33,6 +41,15 @@ public class MyWorld extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1);
+ dev2
+       
+        
+        Label titleScoreLabel = new Label("Score:", 30);
+        addObject(titleScoreLabel, 75, 45);
+        
+        scoreLabel = new Label(score, 30);
+        addObject(scoreLabel, 125, 45);
+
         Label titleScoreLabel = new Label("Score: ", 30);
         addObject(titleScoreLabel, 125, 45);
         
@@ -50,6 +67,7 @@ public class MyWorld extends World
         
         countLabel = new Label(score, 30);
         addObject(countLabel, 250, 75);*/
+ main
         
         pShip = new PlayerShip();
         addObject(pShip, pShip.pShipx, pShip.pShipy);
@@ -108,6 +126,26 @@ public class MyWorld extends World
         addObject(gameOverLabel, 300, 200);
     }
     
+ dev2
+   
+    public void increaseScore()
+    {
+        score += 200;
+        scoreLabel.setValue(score);
+    }
+    
+    public void increaseScore2()
+    {
+        score += 500;
+        scoreLabel.setValue(score);
+    }
+
+    public void act()
+    {
+        Label victory = new Label("You win!", 100);
+        Label victory2 = new Label("Press shift to go to the next level", 25);
+        if(score == 200)
+
     public void decreaseLife()
     {
         lives--;
@@ -117,6 +155,7 @@ public class MyWorld extends World
     public void increaseScoreCount()
     {
         if(difficulty == 1)
+ main
         {
            totalScore += score[0]; 
         }

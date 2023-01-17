@@ -41,7 +41,11 @@ Dev3
             removeTouching(PlayerLaser.class);
             MyWorld world = (MyWorld) getWorld();
             world.removeObject(this);
+ dev2
+            world.increaseScore2();
+
             world.increaseScoreCount();
+ main
             world.createShip();             
         }
         
