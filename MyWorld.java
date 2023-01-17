@@ -9,12 +9,30 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class MyWorld extends World
 {
     Label scoreLabel;
+ dev2
     public int enemyCount = 60;
     public int score = 0;
+
+ Dev3
+    Label lifeLabel;
+    public int enemyCount = 2;
+    public int[] score = {250, 500, 1000};
+    public int totalScore = 0;
+
+    //Label countLabel;
+    public int enemyCount = 30;
+    public int score = 0;
+ main
+ main
     public PlayerShip pShip;
     EnemyShip1 ship1;
     EnemyShip2 ship2;
     int difficulty = 1;
+ dev2
+
+    public int lives = 3;
+    
+ main
     /**
      * Constructor for objects of class MyWorld.
      * 
@@ -23,6 +41,7 @@ public class MyWorld extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1);
+ dev2
        
         
         Label titleScoreLabel = new Label("Score:", 30);
@@ -30,16 +49,47 @@ public class MyWorld extends World
         
         scoreLabel = new Label(score, 30);
         addObject(scoreLabel, 125, 45);
+
+        Label titleScoreLabel = new Label("Score: ", 30);
+        addObject(titleScoreLabel, 125, 45);
+        
+        scoreLabel = new Label(totalScore, 30);
+        addObject(scoreLabel, 200, 45);
+        
+        Label titleLifeLabel = new Label("Lives: ", 30);
+        addObject(titleLifeLabel, 125, 65);
+        
+        lifeLabel = new Label(lives, 30);
+        addObject(lifeLabel, 165, 65);
+        
+        /*Label pointCountLabel = new Label("Score:", score);
+        addObject(pointCountLabel, 125, 75);
+        
+        countLabel = new Label(score, 30);
+        addObject(countLabel, 250, 75);*/
+ main
         
         pShip = new PlayerShip();
         addObject(pShip, pShip.pShipx, pShip.pShipy);
+        //addObject(pShip, 300, pShip.pShipy);
         
         createShip();            
 
         prepare();
        
     }
-
+    public void act()
+    {
+        if(totalScore >= 1000)
+        {
+            difficulty = 2;
+        }
+        if(lives == 0)
+        {
+            Label gameOver = new Label("Game Over", 100);
+            addObject(gameOver, getWidth()/2, getHeight()/2);
+        }
+    }
     public void createShip()
     {
         /**
@@ -64,6 +114,7 @@ public class MyWorld extends World
             addObject(ship2, x, y);
         }
     }
+    
     public void gameOver()
     {
         /**
@@ -75,6 +126,7 @@ public class MyWorld extends World
         addObject(gameOverLabel, 300, 200);
     }
     
+ dev2
    
     public void increaseScore()
     {
@@ -93,10 +145,33 @@ public class MyWorld extends World
         Label victory = new Label("You win!", 100);
         Label victory2 = new Label("Press shift to go to the next level", 25);
         if(score == 200)
-        {
-            difficulty = 2;
-        }
+
+    public void decreaseLife()
+    {
+        lives--;
+        lifeLabel.setValue(lives);
     }
+    
+    public void increaseScoreCount()
+    {
+        if(difficulty == 1)
+ main
+        {
+           totalScore += score[0]; 
+        }
+        else if(difficulty == 2)
+        {
+           totalScore += score[1];
+        }
+        else if(difficulty == 3)
+        {
+            totalScore += score[2];
+        }
+        scoreLabel.setValue(totalScore);
+    }
+    
+
+    
   
     /**
      * Prepare the world for the start of the program.
@@ -198,7 +273,16 @@ public class MyWorld extends World
         removeObject(extrasMyWorld210);
         removeObject(extrasMyWorld42);
         removeObject(extrasMyWorld34);
+ Dev3
         addObject(extrasMyWorld42,148,172);
+
+        extrasMyWorld8.setLocation(219,186);
+        addObject(extrasMyWorld42,219,186);
+        extrasMyWorld2.setLocation(273,120);
+        ExtrasMyWorld4 extrasMyWorld43 = new ExtrasMyWorld4();
+        addObject(extrasMyWorld43,273,120);
+        removeObject(extrasMyWorld42);
+ main
     }
 
 }

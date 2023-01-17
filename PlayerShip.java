@@ -49,6 +49,26 @@ public class PlayerShip extends Actor
         {
             canShoot = true;
         }
+        damage();
+    }
+    
+    public void damage()
+    {
+        if(isTouching(EnemyShip1.class))
+        {
+            removeTouching(EnemyShip1.class);
+            MyWorld world = (MyWorld) getWorld();
+            world.decreaseLife();
+            world.createShip();
+        }
+        
+        if(isTouching(EnemyShip2.class))
+        {
+            removeTouching(EnemyShip2.class);
+            MyWorld world = (MyWorld) getWorld();
+            world.decreaseLife();
+            world.createShip();
+        }
     }
     
     public void setPlayerLocation(int px, int py)
@@ -66,6 +86,7 @@ public class PlayerShip extends Actor
     {
         return py;
     }
+    
     
 
     
