@@ -40,15 +40,43 @@ public class EnemyShip2 extends Actor
             removeTouching(PlayerLaser.class);
             MyWorld world = (MyWorld) getWorld();
             world.removeObject(this);
-<<<<<<< HEAD
             world.increaseScoreCount();
-=======
             world.increaseScore2();
->>>>>>> 3edc2d8b23e4b260f9427636027bcd4c5f31fef0
             world.createShip();             
         }
         
         
     }
     
+
+
+     /* Act - do whatever the EnemyShip2 wants to do. This method is called whenever
+     * the 'Act' or 'Run' button gets pressed in the environment.
+     */
+    public void act()
+    {
+        // Add your action code here.
+        setLocation(getX(), getY() + 3);
+        destroy2();
+        /*
+        MyWorld world = (MyWorld) getWorld();
+        if(getY() >= world.getHeight())
+        {
+            world.gameOver();
+            world.removeObject(this);
+        } 
+        */
+    }
+    public void destroy2()
+    {
+
+        if(isTouching(PlayerLaser.class))
+        {
+            removeTouching(PlayerLaser.class);
+            MyWorld world = (MyWorld) getWorld();
+            world.removeObject(this);
+            world.increaseScore2();
+            world.createShip();             
+        }
+    }
 }
