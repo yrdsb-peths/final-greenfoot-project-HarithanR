@@ -12,11 +12,16 @@ public class PlayerShip extends Actor
     public static int pShipx = 297;
     public static int pShipy = 356;
     boolean canShoot = true;
+ Dev
     
     /** 
      * Act - do whatever the PlayerShip wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
+
+    SimpleTimer pLaserCooldown = new SimpleTimer();
+    
+ dev2
     public PlayerShip()
     {
        GreenfootImage image = getImage();
@@ -28,25 +33,53 @@ public class PlayerShip extends Actor
     {
         if(Greenfoot.isKeyDown("left") || Greenfoot.isKeyDown("a"))
         {
-            move(-5);
-            pShipx -= 5;
+            move(-8);
+            pShipx -= 8;
         }
         
         else if(Greenfoot.isKeyDown("right") || Greenfoot.isKeyDown("d"))
         {
-            move(5);
-            pShipx += 5;
+            move(8);
+            pShipx += 8;
         }
         
         
         if(Greenfoot.isKeyDown("space") && canShoot)
         {
             canShoot = false;
+ Dev
+
+            pLaserCooldown.mark();
+ dev2
             MyWorld world = (MyWorld) getWorld();
             PlayerLaser pLaser = new PlayerLaser();
             world.addObject(pLaser,pShipx,316);
         }
-
+        
+        if(pLaserCooldown.millisElapsed() > 550)
+        {
+            canShoot = true;
+        }
+        damage();
+    }
+    
+    public void damage()
+    {
+        if(isTouching(EnemyShip1.class))
+        {
+            removeTouching(EnemyShip1.class);
+            MyWorld world = (MyWorld) getWorld();
+            world.decreaseLife();
+            world.createShip();
+        }
+        
+        if(isTouching(EnemyShip2.class))
+        {
+            removeTouching(EnemyShip2.class);
+            MyWorld world = (MyWorld) getWorld();
+            world.decreaseLife();
+            world.createShip();
+        }
     }
     
     public void setPlayerLocation(int px, int py)
@@ -64,6 +97,7 @@ public class PlayerShip extends Actor
     {
         return py;
     }
+    
     
 
     

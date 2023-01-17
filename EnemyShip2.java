@@ -9,6 +9,50 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class EnemyShip2 extends Actor
 {
     /**
+Dev3
+     * Act - do whatever the EnemyShip1 wants to do. This method is called whenever
+     * the 'Act' or 'Run' button gets pressed in the environment.
+     */
+    public EnemyShip2()
+    {
+       GreenfootImage image = getImage();
+       image.scale(image.getWidth() - 75, image.getHeight() - 75);
+       setImage(image);
+    }
+    
+    public void act()
+    {
+        setLocation(getX(), getY() + 4);
+        destroy2();
+        
+        /*MyWorld world = (MyWorld) getWorld();
+        if(getY() >= world.getHeight())
+        {
+            //world.removeObject(this);
+            world.decreaseLife();
+        }*/ 
+        
+    }
+    public void destroy2()
+    {
+
+        if(isTouching(PlayerLaser.class))
+        {
+            removeTouching(PlayerLaser.class);
+            MyWorld world = (MyWorld) getWorld();
+            world.removeObject(this);
+ dev2
+            world.increaseScore2();
+
+            world.increaseScoreCount();
+ main
+            world.createShip();             
+        }
+        
+        
+    }
+    
+
      * Act - do whatever the EnemyShip2 wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
@@ -41,4 +85,5 @@ public class EnemyShip2 extends Actor
         }
 >>>>>>> Stashed changes
     }
+main
 }
