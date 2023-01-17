@@ -9,16 +9,24 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class MyWorld extends World
 {
     Label scoreLabel;
+<<<<<<< HEAD
     Label lifeLabel;
     public int enemyCount = 2;
     public int[] score = {250, 500, 1000};
     public int totalScore = 0;
+=======
+    public int enemyCount = 60;
+    public int score = 0;
+>>>>>>> 3edc2d8b23e4b260f9427636027bcd4c5f31fef0
     public PlayerShip pShip;
     EnemyShip1 ship1;
     EnemyShip2 ship2;
     int difficulty = 1;
+<<<<<<< HEAD
     public int lives = 3;
     
+=======
+>>>>>>> 3edc2d8b23e4b260f9427636027bcd4c5f31fef0
     /**
      * Constructor for objects of class MyWorld.
      * 
@@ -27,6 +35,7 @@ public class MyWorld extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1);
+<<<<<<< HEAD
         Label titleScoreLabel = new Label("Score: ", 30);
         addObject(titleScoreLabel, 125, 45);
         
@@ -38,6 +47,15 @@ public class MyWorld extends World
         
         lifeLabel = new Label(lives, 30);
         addObject(lifeLabel, 165, 65);
+=======
+       
+        
+        Label titleScoreLabel = new Label("Score:", 30);
+        addObject(titleScoreLabel, 75, 45);
+        
+        scoreLabel = new Label(score, 30);
+        addObject(scoreLabel, 125, 45);
+>>>>>>> 3edc2d8b23e4b260f9427636027bcd4c5f31fef0
         
         pShip = new PlayerShip();
         addObject(pShip, pShip.pShipx, pShip.pShipy);
@@ -95,6 +113,7 @@ public class MyWorld extends World
         addObject(gameOverLabel, 300, 200);
     }
     
+<<<<<<< HEAD
     public void decreaseLife()
     {
         lives--;
@@ -116,10 +135,34 @@ public class MyWorld extends World
             totalScore += score[2];
         }
         scoreLabel.setValue(totalScore);
+=======
+   
+    public void increaseScore()
+    {
+        score += 200;
+        scoreLabel.setValue(score);
+>>>>>>> 3edc2d8b23e4b260f9427636027bcd4c5f31fef0
     }
     
+    public void increaseScore2()
+    {
+        score += 500;
+        scoreLabel.setValue(score);
+    }
 
+<<<<<<< HEAD
     
+=======
+    public void act()
+    {
+        Label victory = new Label("You win!", 100);
+        Label victory2 = new Label("Press shift to go to the next level", 25);
+        if(score == 200)
+        {
+            difficulty = 2;
+        }
+    }
+>>>>>>> 3edc2d8b23e4b260f9427636027bcd4c5f31fef0
   
     /**
      * Prepare the world for the start of the program.
