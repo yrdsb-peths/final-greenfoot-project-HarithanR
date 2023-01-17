@@ -15,7 +15,11 @@ public class ExtrasMyWorld4 extends Actor
     public ExtrasMyWorld4()
     {
        GreenfootImage image = getImage();
+ Dev3
+       image.scale(image.getWidth() + 50, image.getHeight() + 50);
+
        image.scale(image.getWidth() - 5, image.getHeight() - 5);
+main
        setImage(image);
     }
     

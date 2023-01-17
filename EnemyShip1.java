@@ -23,14 +23,14 @@ public class EnemyShip1 extends Actor
     {
         setLocation(getX(), getY() + 2);
         destroy();
-        /*
-        MyWorld world = (MyWorld) getWorld();
+        
+        /*MyWorld world = (MyWorld) getWorld();
         if(getY() >= world.getHeight())
         {
-            world.gameOver();
+            world.decreaseLife();
             world.removeObject(this);
-        } 
-        */
+        }*/ 
+        
     }
     public void destroy()
     {
@@ -40,8 +40,10 @@ public class EnemyShip1 extends Actor
             removeTouching(PlayerLaser.class);
             MyWorld world = (MyWorld) getWorld();
             world.removeObject(this);
-            world.decreaseEnemyCount();
-            world.createShip1();             
+            world.increaseScoreCount();
+            world.createShip();             
         }
+        
     }
+    
 }
