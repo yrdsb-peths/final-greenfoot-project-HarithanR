@@ -9,6 +9,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class MyWorld extends World
 {
     Label scoreLabel;
+ Dev
+ Updated upstream
+
  dev2
     public int enemyCount = 60;
     public int score = 0;
@@ -19,8 +22,12 @@ public class MyWorld extends World
     public int[] score = {250, 500, 1000};
     public int totalScore = 0;
 
+ dev2
     //Label countLabel;
     public int enemyCount = 30;
+
+    public int enemyCount = 60;
+ Stashed changes
     public int score = 0;
  main
  main
@@ -41,6 +48,19 @@ public class MyWorld extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1);
+ Dev
+        /*Label titleScoreLabel = new Label("Enemies Remaining:", enemyCount);
+        addObject(titleScoreLabel, 125, 45);*/
+        
+        Label titleScoreLabel = new Label("Score:", 30);
+        addObject(titleScoreLabel, 125, 45);
+        
+        /*scoreLabel = new Label(enemyCount, 30);
+        addObject(scoreLabel, 250, 45);*/
+        
+        scoreLabel = new Label(score, 30);
+        addObject(scoreLabel, 250, 45);
+
  dev2
        
         
@@ -61,6 +81,7 @@ public class MyWorld extends World
         
         lifeLabel = new Label(lives, 30);
         addObject(lifeLabel, 165, 65);
+ dev2
         
         /*Label pointCountLabel = new Label("Score:", score);
         addObject(pointCountLabel, 125, 75);
@@ -142,6 +163,32 @@ public class MyWorld extends World
 
     public void act()
     {
+ Dev
+ Updated upstream
+  
+
+        Label victory = new Label("You win!", 100);
+        Label victory2 = new Label("Press shift to go to the next level", 25);
+        /*if(enemyCount < 60 && enemyCount > 20)
+        {
+            difficulty = 2;
+        }*/
+        if(score == 200)
+        {
+            difficulty = 2;
+        }
+ Stashed changes
+    }
+    
+    public void increaseScore()
+    {
+        score += 200;
+    }
+    
+    public void increaseScore2()
+    {
+        score += 500;
+
         Label victory = new Label("You win!", 100);
         Label victory2 = new Label("Press shift to go to the next level", 25);
         if(score == 200)
@@ -150,6 +197,7 @@ public class MyWorld extends World
     {
         lives--;
         lifeLabel.setValue(lives);
+ dev2
     }
     
     public void increaseScoreCount()
