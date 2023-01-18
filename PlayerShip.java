@@ -13,6 +13,7 @@ public class PlayerShip extends Actor
     public static int pShipy = 356;
     boolean canShoot = true;
     GreenfootSound blastSound = new GreenfootSound("Farfadet46_tir.mp3");
+    GreenfootSound destroySound = new GreenfootSound("TinyWorlds_explosion.wav");
     
     /** 
      * Act - do whatever the PlayerShip wants to do. This method is called whenever
