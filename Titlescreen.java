@@ -82,6 +82,11 @@ public class Titlescreen extends World
         extrasMyWorld7.setLocation(378,150);
         ExtrasMyWorld extrasMyWorld18 = new ExtrasMyWorld();
         addObject(extrasMyWorld18,378,150);
+        extrasMyWorld11.setLocation(520,223);
+        EnemyShip3 enemyShip3 = new EnemyShip3();
+        addObject(enemyShip3,520,223);
+        extrasMyWorld11.setLocation(599,199);
+        removeObject(enemyShip3);
     }
     
     public void act()

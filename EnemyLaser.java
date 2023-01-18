@@ -1,19 +1,18 @@
-
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class playerLaser here.
+ * Write a description of class EnemyLaser here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class PlayerLaser extends Actor
+public class EnemyLaser extends Actor
 {
+    
     /**
      * Act - do whatever the playerLaser wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    public int enemyCount = 30;
     
     public void act()
     {
@@ -22,7 +21,7 @@ public class PlayerLaser extends Actor
         
         do
         {
-           y = getY() - 4; 
+           y = getY() + 6; 
         }while(getY() >= 400);
         
         setLocation(x, y);
@@ -38,33 +37,29 @@ public class PlayerLaser extends Actor
      
     public void destroyShip()
     {
-        if(isTouching(EnemyShip1.class))
+        if(isTouching(PlayerShip.class))
         {
-            removeTouching(EnemyShip1.class);
             MyWorld world = (MyWorld) getWorld();
             world.removeObject(this);
-            world.increaseScoreCount();
-            world.createShip();                        
+            world.decreaseLife();
         }
         
-        else if(isTouching(EnemyShip2.class))
+                      
+        if(getY() ==  390)
         {
-           removeTouching(EnemyShip2.class);
-           MyWorld world = (MyWorld) getWorld();
-           world.removeObject(this);
-           world.increaseScoreCount();
-           world.createShip();   
+            MyWorld world = (MyWorld) getWorld();
+            world.removeObject(this);
         }
+    }
         
-        else
+        /*else
         {
             MyWorld world = (MyWorld) getWorld();          
-            if(getY() ==  0)
+            if(getY() ==  400)
             {
                 world.removeObject(this);
             }
-        }
-
-    }
+        }*/
 
 }
+

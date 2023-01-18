@@ -12,7 +12,7 @@ public class PlayerShip extends Actor
     public static int pShipx = 297;
     public static int pShipy = 356;
     boolean canShoot = true;
- Dev
+ 
     
     /** 
      * Act - do whatever the PlayerShip wants to do. This method is called whenever
@@ -21,7 +21,6 @@ public class PlayerShip extends Actor
 
     SimpleTimer pLaserCooldown = new SimpleTimer();
     
- dev2
     public PlayerShip()
     {
        GreenfootImage image = getImage();
@@ -47,10 +46,10 @@ public class PlayerShip extends Actor
         if(Greenfoot.isKeyDown("space") && canShoot)
         {
             canShoot = false;
- Dev
+ 
 
             pLaserCooldown.mark();
- dev2
+ 
             MyWorld world = (MyWorld) getWorld();
             PlayerLaser pLaser = new PlayerLaser();
             world.addObject(pLaser,pShipx,316);
@@ -79,6 +78,16 @@ public class PlayerShip extends Actor
             MyWorld world = (MyWorld) getWorld();
             world.decreaseLife();
             world.createShip();
+        }
+    }
+    
+    public void injure()
+    {
+        if(isTouching(EnemyLaser.class))
+        {
+            removeTouching(EnemyLaser.class);
+            MyWorld world = (MyWorld) getWorld();
+            world.decreaseLife();
         }
     }
     
