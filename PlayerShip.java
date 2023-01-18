@@ -100,6 +100,7 @@ public class PlayerShip extends Actor
         {
             removeTouching(EnemyLaser.class);
             MyWorld world = (MyWorld) getWorld();
+            world.decreaseLife();
         }
     }
     

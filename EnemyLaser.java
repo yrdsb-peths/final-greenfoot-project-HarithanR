@@ -40,7 +40,7 @@ public class EnemyLaser extends Actor
         {
             MyWorld world = (MyWorld) getWorld();
             world.removeObject(this);
-            world.decreaseLife();
+            //world.decreaseLife();
         }
     }
 }
