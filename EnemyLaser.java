@@ -19,10 +19,7 @@ public class EnemyLaser extends Actor
         int x = getX();
         int y  = getY();
         
-        do
-        {
-           y = getY() + 10; 
-        }while(getY() >= 400);
+        y = y + 10;
         
         setLocation(x, y);
         
@@ -31,8 +28,11 @@ public class EnemyLaser extends Actor
          * lower than the bottom of the world's height, text saying "Game
          * Over" will be placed in the middle of the screen.
          */
-                 
-        destroyShip();     
+
+        if (y > getWorld().getHeight()){
+            getWorld().removeObject(this);
+        }
+        //destroyShip();     
     }
      
     public void destroyShip()

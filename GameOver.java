@@ -25,14 +25,14 @@ public class GameOver extends World
         shipTimer.mark();
         if(shipTimer.millisElapsed() > 300)
         {
-            GameOver gameOver = (GameOver) getWorld();
+            
             titleTimer.mark();
-            gameOver.removeObject(decorationPlayerShip);
+            removeObject(decorationPlayerShip);
         }
         
         if(titleTimer.millisElapsed() > 700)
         {
-            GameOver gameOver = (GameOver) getWorld();
+            
             addObject(titleLabel, getWidth()/2, 50);
         }
         prepare();
