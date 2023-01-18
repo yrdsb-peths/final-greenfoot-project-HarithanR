@@ -21,7 +21,7 @@ public class EnemyLaser extends Actor
         
         do
         {
-           y = getY() + 6; 
+           y = getY() + 10; 
         }while(getY() >= 400);
         
         setLocation(x, y);

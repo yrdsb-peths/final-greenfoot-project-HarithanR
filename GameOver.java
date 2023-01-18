@@ -21,7 +21,20 @@ public class GameOver extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1); 
-        addObject(titleLabel, getWidth()/2, 50);
+        //addObject(titleLabel, getWidth()/2, 50);
+        shipTimer.mark();
+        if(shipTimer.millisElapsed() > 300)
+        {
+            GameOver gameOver = (GameOver) getWorld();
+            titleTimer.mark();
+            gameOver.removeObject(decorationPlayerShip);
+        }
+        
+        if(titleTimer.millisElapsed() > 700)
+        {
+            GameOver gameOver = (GameOver) getWorld();
+            addObject(titleLabel, getWidth()/2, 50);
+        }
         prepare();
     }
     
@@ -33,5 +46,10 @@ public class GameOver extends World
     {
         addObject(decorationPlayerShip,285,191);
         decorationPlayerShip.setLocation(300,206);
+    }
+    
+    public void cutscene()
+    {
+        
     }
 }

@@ -39,10 +39,10 @@ public class EnemyShip3 extends Actor
  
             MyWorld world = (MyWorld) getWorld();
             EnemyLaser eLaser = new EnemyLaser();
-            world.addObject(eLaser,eShipx,eShipy);
+            world.addObject(eLaser,eShipx,eShipy + 50);
         }
         
-        if(spawnLaser.millisElapsed() > 2000)
+        if(spawnLaser.millisElapsed() > 850)
         {
             canShoot = true;
         }
@@ -60,6 +60,7 @@ public class EnemyShip3 extends Actor
             world.increaseScoreCount();           
             world.createShip();             
         }
+            
         else
         {
             MyWorld world = (MyWorld) getWorld();          

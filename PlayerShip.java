@@ -80,6 +80,14 @@ public class PlayerShip extends Actor
             world.decreaseLife();
             world.createShip();
         }
+        
+        if(isTouching(EnemyShip3.class))
+        {
+            removeTouching(EnemyShip3.class);
+            MyWorld world = (MyWorld) getWorld();
+            world.decreaseLife();
+            world.createShip();
+        }
     }
     
     public void injure()
