@@ -32,10 +32,10 @@ public class EnemyLaser extends Actor
         if (y > getWorld().getHeight()){
             getWorld().removeObject(this);
         }
-        //destroyShip();     
+        laserScenarios();     
     }
      
-    public void destroyShip()
+    public void laserScenarios()
     {
         if(isTouching(PlayerShip.class))
         {

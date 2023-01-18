@@ -239,21 +239,6 @@ public class MyWorld extends World
         extrasMyWorld10.setLocation(158,101);
         ExtrasMyWorld extrasMyWorld33 = new ExtrasMyWorld();
         addObject(extrasMyWorld33,158,101);
-        extrasMyWorld3.setLocation(306,367);
-        ExtrasMyWorld3 extrasMyWorld34 = new ExtrasMyWorld3();
-        addObject(extrasMyWorld34,476,171);
-        ExtrasMyWorld2 extrasMyWorld210 = new ExtrasMyWorld2();
-        addObject(extrasMyWorld210,142,88);
-        ExtrasMyWorld4 extrasMyWorld42 = new ExtrasMyWorld4();
-        addObject(extrasMyWorld42,408,85);
-
-        removeObject(extrasMyWorld210);
-        extrasMyWorld11.setLocation(145,297);
-        addObject(extrasMyWorld210,145,297);
-        removeObject(extrasMyWorld210);
-        removeObject(extrasMyWorld42);
-        removeObject(extrasMyWorld34);
-        addObject(extrasMyWorld42,148,172);
     }
 
 }

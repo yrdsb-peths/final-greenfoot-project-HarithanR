@@ -32,7 +32,6 @@ public class GameOver extends World
         
         if(titleTimer.millisElapsed() > 700)
         {
-            
             addObject(titleLabel, getWidth()/2, 50);
         }
         prepare();

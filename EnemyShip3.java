@@ -11,6 +11,7 @@ public class EnemyShip3 extends Actor
     public static int eShipx = 297;
     public static int eShipy = 356;
     SimpleTimer spawnLaser = new SimpleTimer();
+    GreenfootSound blastSound = new GreenfootSound("Farfadet46_tir.mp3");
     boolean canShoot = true;
     /**
      * Act - do whatever the EnemyShip1 wants to do. This method is called whenever
@@ -40,11 +41,13 @@ public class EnemyShip3 extends Actor
             MyWorld world = (MyWorld) getWorld();
             EnemyLaser eLaser = new EnemyLaser();
             world.addObject(eLaser,eShipx,eShipy + 50);
+            blastSound.play();
         }
         
         if(spawnLaser.millisElapsed() > 850)
         {
             canShoot = true;
+            
         }
         destroy();
         //creationTimer();
