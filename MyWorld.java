@@ -19,7 +19,7 @@ public class MyWorld extends World
     EnemyShip3 ship3;
     int difficulty = 1;
     public int lives = 3;
-    
+    GreenfootSound gameOverSound = new GreenfootSound("Sudocolon_Icy_Game_Over.mp3");
     /**
      * Constructor for objects of class MyWorld.
      * 
@@ -108,6 +108,7 @@ public class MyWorld extends World
             addObject(defeat, getWidth()/2, getHeight()/2);*/
             GameOver gameOver = new GameOver();
             Greenfoot.setWorld(gameOver);
+            gameOverSound.play();
         }
 
         /*if(enemyCount < 60 && enemyCount > 20)

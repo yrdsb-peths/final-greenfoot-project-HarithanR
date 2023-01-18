@@ -12,7 +12,7 @@ public class PlayerShip extends Actor
     public static int pShipx = 297;
     public static int pShipy = 356;
     boolean canShoot = true;
- 
+    GreenfootSound blastSound = new GreenfootSound("Farfadet46_tir.mp3");
     
     /** 
      * Act - do whatever the PlayerShip wants to do. This method is called whenever
@@ -53,6 +53,7 @@ public class PlayerShip extends Actor
             MyWorld world = (MyWorld) getWorld();
             PlayerLaser pLaser = new PlayerLaser();
             world.addObject(pLaser,pShipx,316);
+            blastSound.play();
         }
         
         if(pLaserCooldown.millisElapsed() > 550)

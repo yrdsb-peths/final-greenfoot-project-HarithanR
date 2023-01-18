@@ -44,13 +44,15 @@ public class EnemyLaser extends Actor
             world.decreaseLife();
         }
         
-                      
-        if(getY() ==  390)
+        else
         {
             MyWorld world = (MyWorld) getWorld();
-            world.removeObject(this);
+            if(getY() ==  390)
+            {
+            
+                world.removeObject(this);
+            }
         }
-    }
         
         /*else
         {
@@ -61,5 +63,6 @@ public class EnemyLaser extends Actor
             }
         }*/
 
+    }
 }
 
