@@ -72,6 +72,7 @@ public class PlayerShip extends Actor
             MyWorld world = (MyWorld) getWorld();
             world.decreaseLife();
             world.createShip();
+            destroySound.play();
         }
         
         if(isTouching(EnemyShip2.class))
@@ -80,6 +81,7 @@ public class PlayerShip extends Actor
             MyWorld world = (MyWorld) getWorld();
             world.decreaseLife();
             world.createShip();
+            destroySound.play();
         }
         
         if(isTouching(EnemyShip3.class))
@@ -88,6 +90,7 @@ public class PlayerShip extends Actor
             MyWorld world = (MyWorld) getWorld();
             world.decreaseLife();
             world.createShip();
+            destroySound.play();
         }
     }
     
@@ -97,7 +100,6 @@ public class PlayerShip extends Actor
         {
             removeTouching(EnemyLaser.class);
             MyWorld world = (MyWorld) getWorld();
-            world.decreaseLife();
         }
     }
     

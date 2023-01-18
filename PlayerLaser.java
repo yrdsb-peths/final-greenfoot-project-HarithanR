@@ -9,11 +9,12 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class PlayerLaser extends Actor
 {
+    GreenfootSound destroySound = new GreenfootSound("TinyWorlds_explosion.wav");
     /**
      * Act - do whatever the playerLaser wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    public int enemyCount = 30;
+    
     
     public void act()
     {
@@ -44,7 +45,8 @@ public class PlayerLaser extends Actor
             MyWorld world = (MyWorld) getWorld();
             world.removeObject(this);
             world.increaseScoreCount();
-            world.createShip();                        
+            world.createShip();
+            destroySound.play();
         }
         
         else if(isTouching(EnemyShip2.class))
@@ -53,7 +55,8 @@ public class PlayerLaser extends Actor
            MyWorld world = (MyWorld) getWorld();
            world.removeObject(this);
            world.increaseScoreCount();
-           world.createShip();   
+           world.createShip(); 
+           destroySound.play();
         }
         
         else

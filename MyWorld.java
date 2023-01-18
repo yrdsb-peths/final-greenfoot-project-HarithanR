@@ -110,11 +110,7 @@ public class MyWorld extends World
             Greenfoot.setWorld(gameOver);
             gameOverSound.play();
         }
-
-        /*if(enemyCount < 60 && enemyCount > 20)
-        {
-            difficulty = 2;
-        }*/
+        
         if(totalScore >= 375 && totalScore <= 700)
         {
             difficulty = 2;
@@ -170,7 +166,7 @@ public class MyWorld extends World
         extrasMyWorld3.setLocation(424,324);
         ExtrasMyWorld extrasMyWorld5 = new ExtrasMyWorld();
         addObject(extrasMyWorld5,424,324);
-                ExtrasMyWorld extrasMyWorld6 = new ExtrasMyWorld();
+        ExtrasMyWorld extrasMyWorld6 = new ExtrasMyWorld();
         addObject(extrasMyWorld6,459,193);
         ExtrasMyWorld extrasMyWorld7 = new ExtrasMyWorld();
         addObject(extrasMyWorld7,423,99);

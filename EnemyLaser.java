@@ -28,14 +28,13 @@ public class EnemyLaser extends Actor
          * lower than the bottom of the world's height, text saying "Game
          * Over" will be placed in the middle of the screen.
          */
-
+        laserTouchPlayer();
         if (y > getWorld().getHeight()){
             getWorld().removeObject(this);
-        }
-        laserScenarios();     
+        }     
     }
      
-    public void laserScenarios()
+    public void laserTouchPlayer()
     {
         if(isTouching(PlayerShip.class))
         {
@@ -43,26 +42,6 @@ public class EnemyLaser extends Actor
             world.removeObject(this);
             world.decreaseLife();
         }
-        
-        else
-        {
-            MyWorld world = (MyWorld) getWorld();
-            if(getY() ==  390)
-            {
-            
-                world.removeObject(this);
-            }
-        }
-        
-        /*else
-        {
-            MyWorld world = (MyWorld) getWorld();          
-            if(getY() ==  400)
-            {
-                world.removeObject(this);
-            }
-        }*/
-
     }
 }
 

@@ -12,6 +12,7 @@ public class EnemyShip3 extends Actor
     public static int eShipy = 356;
     SimpleTimer spawnLaser = new SimpleTimer();
     GreenfootSound blastSound = new GreenfootSound("Farfadet46_tir.mp3");
+    GreenfootSound destroySound = new GreenfootSound("TinyWorlds_explosion.wav");
     boolean canShoot = true;
     /**
      * Act - do whatever the EnemyShip1 wants to do. This method is called whenever
@@ -59,9 +60,10 @@ public class EnemyShip3 extends Actor
         {
             removeTouching(PlayerLaser.class);
             MyWorld world = (MyWorld) getWorld();
-            world.removeObject(this);
             world.increaseScoreCount();           
-            world.createShip();             
+            world.createShip();      
+            world.removeObject(this);
+            destroySound.play();
         }
             
         else
@@ -70,8 +72,8 @@ public class EnemyShip3 extends Actor
             if(getY() ==  380)
             {
                 world.decreaseLife();
-                world.removeObject(this);
                 world.createShip();
+                world.removeObject(this);
             }
         }
     }
