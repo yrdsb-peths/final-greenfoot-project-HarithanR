@@ -8,9 +8,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Titlescreen extends World
 {
-    Label titleLabel = new Label("Space Shooter", 50);
+    Label titleLabel = new Label("Low Effort Space Shooter", 50);
     Label instruction1 = new Label("Use <-- and --> or A and D to move", 30);
-    Label instruction2 = new Label("Hold space to shoot", 30);
+    Label instruction2 = new Label("Press or hold space to shoot", 30);
     Label instruction3 = new Label("Press enter to start the game", 30);
     /**
      * Constructor for objects of class Titlescreen.
