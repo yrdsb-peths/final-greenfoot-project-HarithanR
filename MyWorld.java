@@ -9,30 +9,20 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class MyWorld extends World
 {
     Label scoreLabel;
- dev2
-    public int enemyCount = 60;
-    public int score = 0;
-
- Dev3
     Label lifeLabel;
     public int enemyCount = 2;
     public int[] score = {250, 500, 1000};
     public int totalScore = 0;
-
-    //Label countLabel;
-    public int enemyCount = 30;
-    public int score = 0;
- main
- main
     public PlayerShip pShip;
     EnemyShip1 ship1;
     EnemyShip2 ship2;
+    EnemyShip3 ship3;
     int difficulty = 1;
- dev2
-
     public int lives = 3;
+    GreenfootSound mainTheme = new GreenfootSound("Matthew_Pablo_Orbital_Colossus.mp3");
+    GreenfootSound win = new GreenfootSound("Celestialghost8_Victory.mp3");
+    SimpleTimer winTimer = new SimpleTimer();
     
- main
     /**
      * Constructor for objects of class MyWorld.
      * 
@@ -41,54 +31,30 @@ public class MyWorld extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1);
- dev2
+ 
        
         
         Label titleScoreLabel = new Label("Score:", 30);
         addObject(titleScoreLabel, 75, 45);
         
-        scoreLabel = new Label(score, 30);
-        addObject(scoreLabel, 125, 45);
-
-        Label titleScoreLabel = new Label("Score: ", 30);
-        addObject(titleScoreLabel, 125, 45);
-        
         scoreLabel = new Label(totalScore, 30);
-        addObject(scoreLabel, 200, 45);
+        addObject(scoreLabel, 150, 45);
+
         
         Label titleLifeLabel = new Label("Lives: ", 30);
-        addObject(titleLifeLabel, 125, 65);
+        addObject(titleLifeLabel, 540, 45);
         
         lifeLabel = new Label(lives, 30);
-        addObject(lifeLabel, 165, 65);
-        
-        /*Label pointCountLabel = new Label("Score:", score);
-        addObject(pointCountLabel, 125, 75);
-        
-        countLabel = new Label(score, 30);
-        addObject(countLabel, 250, 75);*/
- main
+        addObject(lifeLabel, 580, 45);
+       
         
         pShip = new PlayerShip();
         addObject(pShip, pShip.pShipx, pShip.pShipy);
-        //addObject(pShip, 300, pShip.pShipy);
         
         createShip();            
 
         prepare();
        
-    }
-    public void act()
-    {
-        if(totalScore >= 1000)
-        {
-            difficulty = 2;
-        }
-        if(lives == 0)
-        {
-            Label gameOver = new Label("Game Over", 100);
-            addObject(gameOver, getWidth()/2, getHeight()/2);
-        }
     }
     public void createShip()
     {
@@ -113,6 +79,28 @@ public class MyWorld extends World
             int y = 0;
             addObject(ship2, x, y);
         }
+        
+        else if(difficulty == 3)
+        {
+            removeObject(ship2);
+            ship3 = new EnemyShip3();
+            int x = Greenfoot.getRandomNumber(600);
+            int y = 0;
+            addObject(ship3, x, y);
+        }
+        
+        else if(difficulty == 4)
+        {
+            removeObject(ship3);
+            win.play();
+            
+            if(winTimer.millisElapsed() > 3000)
+            {
+                winTimer.mark();
+                Label winLabel = new Label("You win!", 50);
+                addObject(winLabel, getWidth()/2, getHeight()/2);
+            }
+        }
     }
     
     public void gameOver()
@@ -125,37 +113,50 @@ public class MyWorld extends World
         Label gameOverLabel = new Label("Game Over", 100);
         addObject(gameOverLabel, 300, 200);
     }
-    
- dev2
-   
-    public void increaseScore()
-    {
-        score += 200;
-        scoreLabel.setValue(score);
-    }
-    
-    public void increaseScore2()
-    {
-        score += 500;
-        scoreLabel.setValue(score);
-    }
+     
+
 
     public void act()
     {
-        Label victory = new Label("You win!", 100);
-        Label victory2 = new Label("Press shift to go to the next level", 25);
-        if(score == 200)
-
+        mainTheme.play();
+        if(lives == 0)
+        {
+            /*Label defeat = new Label("You Lose!", 100);
+            addObject(defeat, getWidth()/2, getHeight()/2);*/
+            GameOver gameOver = new GameOver();
+            Greenfoot.setWorld(gameOver);
+            
+            mainTheme.stop();
+        }
+        
+        if(totalScore >= 2000 && totalScore <= 4000)
+        {
+            difficulty = 2;
+        }
+        
+        else if(totalScore > 4000 && totalScore <= 6000)
+        {
+            difficulty = 3;
+        }
+        
+        else if(totalScore > 6000)
+        {
+            difficulty = 4;
+            mainTheme.stop();
+        }
+    }
+    
+    
     public void decreaseLife()
     {
         lives--;
         lifeLabel.setValue(lives);
+ 
     }
     
     public void increaseScoreCount()
     {
         if(difficulty == 1)
- main
         {
            totalScore += score[0]; 
         }
@@ -168,10 +169,9 @@ public class MyWorld extends World
             totalScore += score[2];
         }
         scoreLabel.setValue(totalScore);
+   
     }
-    
 
-    
   
     /**
      * Prepare the world for the start of the program.
@@ -259,30 +259,6 @@ public class MyWorld extends World
         extrasMyWorld10.setLocation(158,101);
         ExtrasMyWorld extrasMyWorld33 = new ExtrasMyWorld();
         addObject(extrasMyWorld33,158,101);
-        extrasMyWorld3.setLocation(306,367);
-        ExtrasMyWorld3 extrasMyWorld34 = new ExtrasMyWorld3();
-        addObject(extrasMyWorld34,476,171);
-        ExtrasMyWorld2 extrasMyWorld210 = new ExtrasMyWorld2();
-        addObject(extrasMyWorld210,142,88);
-        ExtrasMyWorld4 extrasMyWorld42 = new ExtrasMyWorld4();
-        addObject(extrasMyWorld42,408,85);
-
-        removeObject(extrasMyWorld210);
-        extrasMyWorld11.setLocation(145,297);
-        addObject(extrasMyWorld210,145,297);
-        removeObject(extrasMyWorld210);
-        removeObject(extrasMyWorld42);
-        removeObject(extrasMyWorld34);
- Dev3
-        addObject(extrasMyWorld42,148,172);
-
-        extrasMyWorld8.setLocation(219,186);
-        addObject(extrasMyWorld42,219,186);
-        extrasMyWorld2.setLocation(273,120);
-        ExtrasMyWorld4 extrasMyWorld43 = new ExtrasMyWorld4();
-        addObject(extrasMyWorld43,273,120);
-        removeObject(extrasMyWorld42);
- main
     }
 
 }

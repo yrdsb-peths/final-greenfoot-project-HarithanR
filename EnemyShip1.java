@@ -8,6 +8,10 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class EnemyShip1 extends Actor
 {
+    SimpleTimer spawnTimer = new SimpleTimer();
+    SimpleTimer tim1 = new SimpleTimer();
+    public static int eShipx = 297;
+    public static int eShipy = 356;
     /**
      * Act - do whatever the EnemyShip1 wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -21,15 +25,12 @@ public class EnemyShip1 extends Actor
     
     public void act()
     {
+        eShipx = getX();
+        eShipy = getY();
         setLocation(getX(), getY() + 2);
-        destroy();
+        tim1.mark();
         
-        /*MyWorld world = (MyWorld) getWorld();
-        if(getY() >= world.getHeight())
-        {
-            world.decreaseLife();
-            world.removeObject(this);
-        }*/ 
+        destroy();
         
     }
     public void destroy()
@@ -39,15 +40,55 @@ public class EnemyShip1 extends Actor
         {
             removeTouching(PlayerLaser.class);
             MyWorld world = (MyWorld) getWorld();
+            ExplosionEnemy explosion = new ExplosionEnemy();
+            world.addObject(explosion,eShipx,eShipy);
+            if(tim1.millisElapsed() > 150)
+           {
+                world.removeObject(explosion);
+           } 
             world.removeObject(this);
- dev2
-            world.increaseScore();
-
-            world.increaseScoreCount();
- main
+            world.increaseScoreCount();           
             world.createShip();             
         }
-        
+        else
+        {
+            MyWorld world = (MyWorld) getWorld();          
+            if(getY() ==  390)
+            {
+                world.decreaseLife();
+                world.removeObject(this);
+                world.createShip();
+            }
+        }
     }
+    public void setPlayerLocation(int ex, int ey)
+    {
+        ex = eShipx;
+        ey = eShipy;
+    }
+    
+    public int getEnemyLocationx(int ex)
+    {
+        return ex;
+    }
+    
+    public int getEnemyLocationy(int ey)
+    {
+        return ey;
+    }
+    
+    /*public void creationTimer()
+    {
+        
+        if(spawnTimer.millisElapsed() > 1000)
+        {
+            spawnTimer.mark();
+            MyWorld world = (MyWorld) getWorld();
+            world.createShip();
+        }
+    }*/
+    
+    
+
     
 }

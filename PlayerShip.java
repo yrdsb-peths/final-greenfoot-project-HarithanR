@@ -12,8 +12,16 @@ public class PlayerShip extends Actor
     public static int pShipx = 297;
     public static int pShipy = 356;
     boolean canShoot = true;
-    SimpleTimer pLaserCooldown = new SimpleTimer();
+    GreenfootSound blastSound = new GreenfootSound("Farfadet46_tir.mp3");
+    GreenfootSound destroySound = new GreenfootSound("TinyWorlds_explosion.wav");
     
+    /** 
+     * Act - do whatever the PlayerShip wants to do. This method is called whenever
+     * the 'Act' or 'Run' button gets pressed in the environment.
+     */
+
+    SimpleTimer pLaserCooldown = new SimpleTimer();
+    SimpleTimer animationTimer = new SimpleTimer();
     public PlayerShip()
     {
        GreenfootImage image = getImage();
@@ -39,10 +47,14 @@ public class PlayerShip extends Actor
         if(Greenfoot.isKeyDown("space") && canShoot)
         {
             canShoot = false;
+ 
+
             pLaserCooldown.mark();
+ 
             MyWorld world = (MyWorld) getWorld();
             PlayerLaser pLaser = new PlayerLaser();
             world.addObject(pLaser,pShipx,316);
+            blastSound.play();
         }
         
         if(pLaserCooldown.millisElapsed() > 550)
@@ -58,16 +70,55 @@ public class PlayerShip extends Actor
         {
             removeTouching(EnemyShip1.class);
             MyWorld world = (MyWorld) getWorld();
+            ExplosionEnemy explosion = new ExplosionEnemy();
+            world.addObject(explosion,pShipx,pShipy - 50);
+            if(animationTimer.millisElapsed() == 500)
+           {
+                world.removeObject(explosion);
+           } 
             world.decreaseLife();
             world.createShip();
+            destroySound.play();
         }
         
         if(isTouching(EnemyShip2.class))
         {
             removeTouching(EnemyShip2.class);
             MyWorld world = (MyWorld) getWorld();
+            ExplosionEnemy explosion = new ExplosionEnemy();
+            world.addObject(explosion,pShipx,pShipy - 50);
+            if(animationTimer.millisElapsed() == 500)
+           {
+                world.removeObject(explosion);
+           } 
             world.decreaseLife();
             world.createShip();
+            destroySound.play();
+        }
+        
+        if(isTouching(EnemyShip3.class))
+        {
+            removeTouching(EnemyShip3.class);
+            MyWorld world = (MyWorld) getWorld();
+            ExplosionEnemy explosion = new ExplosionEnemy();
+            world.addObject(explosion,pShipx,pShipy - 50);
+            if(animationTimer.millisElapsed() == 500)
+           {
+                world.removeObject(explosion);
+           } 
+            world.decreaseLife();
+            world.createShip();
+            destroySound.play();
+        }
+    }
+    
+    public void injure()
+    {
+        if(isTouching(EnemyLaser.class))
+        {
+            removeTouching(EnemyLaser.class);
+            MyWorld world = (MyWorld) getWorld();
+            world.decreaseLife();
         }
     }
     
