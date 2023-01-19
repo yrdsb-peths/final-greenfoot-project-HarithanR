@@ -19,7 +19,7 @@ public class EnemyLaser extends Actor
         int x = getX();
         int y  = getY();
         
-        y = y + 10;
+        y = y + 7;
         
         setLocation(x, y);
         

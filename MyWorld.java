@@ -129,17 +129,17 @@ public class MyWorld extends World
             mainTheme.stop();
         }
         
-        if(totalScore >= 2000 && totalScore <= 4000)
+        if(totalScore >= 5000 && totalScore <= 15000)
         {
             difficulty = 2;
         }
         
-        else if(totalScore > 4000 && totalScore <= 6000)
+        else if(totalScore > 15000 && totalScore <= 25000)
         {
             difficulty = 3;
         }
         
-        else if(totalScore > 6000)
+        else if(totalScore > 25000)
         {
             difficulty = 4;
             mainTheme.stop();
