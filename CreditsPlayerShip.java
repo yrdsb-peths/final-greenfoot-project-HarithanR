@@ -14,6 +14,8 @@ public class CreditsPlayerShip extends Actor
      */
     public void act()
     {
-        // Add your action code here.
+        GreenfootImage image = getImage();
+        image.scale(image.getWidth() - 680, image.getHeight() - 830);
+        setImage(image);
     }
 }

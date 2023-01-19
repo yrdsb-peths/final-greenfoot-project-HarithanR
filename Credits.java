@@ -9,7 +9,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Credits extends World
 {
     Label titleLabel = new Label("Credits:", 50);
-    Label credits1 = new Label("Ansimuz:Backgrounds", 30);
+    Label credits1 = new Label("Ansimuz:Background", 30);
     Label credits2 = new Label("MillionthVector:Player Ship", 30);
     Label credits3 = new Label("Rawdanitsu:Lasers", 30);
     Label credits4 = new Label("Skorpio:Enemy Ships", 30);
@@ -23,13 +23,13 @@ public class Credits extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1); 
-        addObject(titleLabel, getWidth()/2, 20);
-        addObject(credits1, getWidth()/2, 60);
-        addObject(credits2, getWidth()/2, 100);
-        addObject(credits3, getWidth()/2, 140);
-        addObject(credits4, getWidth()/2, 180);
-        addObject(credits5, getWidth()/2, 220);
-        addObject(leave, getWidth()/2, 260);
+        addObject(titleLabel, 75, 20);
+        addObject(credits1, 125, 60);
+        addObject(credits2, 150, 100);
+        addObject(credits3, 105, 140);
+        addObject(credits4, 115, 180);
+        addObject(credits5, 125, 220);
+        addObject(leave, 125, 260);
         prepare();
     }
 
