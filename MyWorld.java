@@ -19,7 +19,10 @@ public class MyWorld extends World
     EnemyShip3 ship3;
     int difficulty = 1;
     public int lives = 3;
-    GreenfootSound gameOverSound = new GreenfootSound("Sudocolon_Icy_Game_Over.mp3");
+    GreenfootSound mainTheme = new GreenfootSound("Matthew_Pablo_Orbital_Colossus.mp3");
+    GreenfootSound win = new GreenfootSound("Celestialghost8_Victory.mp3");
+    SimpleTimer winTimer = new SimpleTimer();
+    
     /**
      * Constructor for objects of class MyWorld.
      * 
@@ -85,6 +88,19 @@ public class MyWorld extends World
             int y = 0;
             addObject(ship3, x, y);
         }
+        
+        else if(difficulty == 4)
+        {
+            removeObject(ship3);
+            win.play();
+            
+            if(winTimer.millisElapsed() > 3000)
+            {
+                winTimer.mark();
+                Label winLabel = new Label("You win!", 50);
+                addObject(winLabel, getWidth()/2, getHeight()/2);
+            }
+        }
     }
     
     public void gameOver()
@@ -102,23 +118,31 @@ public class MyWorld extends World
 
     public void act()
     {
+        mainTheme.play();
         if(lives == 0)
         {
             /*Label defeat = new Label("You Lose!", 100);
             addObject(defeat, getWidth()/2, getHeight()/2);*/
             GameOver gameOver = new GameOver();
             Greenfoot.setWorld(gameOver);
-            gameOverSound.play();
+            
+            mainTheme.stop();
         }
         
-        if(totalScore >= 375 && totalScore <= 700)
+        if(totalScore >= 2000 && totalScore <= 4000)
         {
             difficulty = 2;
         }
         
-        else if(totalScore > 700)
+        else if(totalScore > 4000 && totalScore <= 6000)
         {
             difficulty = 3;
+        }
+        
+        else if(totalScore > 6000)
+        {
+            difficulty = 4;
+            mainTheme.stop();
         }
     }
     

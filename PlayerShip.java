@@ -21,7 +21,7 @@ public class PlayerShip extends Actor
      */
 
     SimpleTimer pLaserCooldown = new SimpleTimer();
-    
+    SimpleTimer animationTimer = new SimpleTimer();
     public PlayerShip()
     {
        GreenfootImage image = getImage();
@@ -70,6 +70,12 @@ public class PlayerShip extends Actor
         {
             removeTouching(EnemyShip1.class);
             MyWorld world = (MyWorld) getWorld();
+            ExplosionEnemy explosion = new ExplosionEnemy();
+            world.addObject(explosion,pShipx,pShipy - 50);
+            if(animationTimer.millisElapsed() == 500)
+           {
+                world.removeObject(explosion);
+           } 
             world.decreaseLife();
             world.createShip();
             destroySound.play();
@@ -79,6 +85,12 @@ public class PlayerShip extends Actor
         {
             removeTouching(EnemyShip2.class);
             MyWorld world = (MyWorld) getWorld();
+            ExplosionEnemy explosion = new ExplosionEnemy();
+            world.addObject(explosion,pShipx,pShipy - 50);
+            if(animationTimer.millisElapsed() == 500)
+           {
+                world.removeObject(explosion);
+           } 
             world.decreaseLife();
             world.createShip();
             destroySound.play();
@@ -88,6 +100,12 @@ public class PlayerShip extends Actor
         {
             removeTouching(EnemyShip3.class);
             MyWorld world = (MyWorld) getWorld();
+            ExplosionEnemy explosion = new ExplosionEnemy();
+            world.addObject(explosion,pShipx,pShipy - 50);
+            if(animationTimer.millisElapsed() == 500)
+           {
+                world.removeObject(explosion);
+           } 
             world.decreaseLife();
             world.createShip();
             destroySound.play();

@@ -10,6 +10,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class PlayerLaser extends Actor
 {
     GreenfootSound destroySound = new GreenfootSound("TinyWorlds_explosion.wav");
+    SimpleTimer animationTimer = new SimpleTimer();
+    public static int playLaserx = 297;
+    public static int playLasery = 356;
     /**
      * Act - do whatever the playerLaser wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -18,23 +21,27 @@ public class PlayerLaser extends Actor
     
     public void act()
     {
-        int x = getX();
-        int y  = getY();
+        animationTimer.mark();
+        playLaserx = getX();
+        playLasery = getY();
         
-        do
+        playLasery = playLasery - 4;
+        
+        /*do
         {
-           y = getY() - 4; 
-        }while(getY() >= 400);
+           playLasery = getY() - 4; 
+        }while(getY() >= 400);*/
         
-        setLocation(x, y);
+        
+        setLocation(playLaserx, playLasery);
         
         /**
          * Sets up the losing condition for the game. When the apple reaches
          * lower than the bottom of the world's height, text saying "Game
          * Over" will be placed in the middle of the screen.
          */
-                 
-        destroyShip();     
+     
+        destroyShip(); 
     }
      
     public void destroyShip()
@@ -43,22 +50,50 @@ public class PlayerLaser extends Actor
         {
             removeTouching(EnemyShip1.class);
             MyWorld world = (MyWorld) getWorld();
+            ExplosionEnemy explosion = new ExplosionEnemy();
+            world.addObject(explosion,playLaserx,playLasery);
+            if(animationTimer.millisElapsed() > 500)
+           {
+                world.removeObject(explosion);
+           } 
             world.removeObject(this);
             world.increaseScoreCount();
             world.createShip();
             destroySound.play();
+            
+
         }
         
         else if(isTouching(EnemyShip2.class))
         {
-           removeTouching(EnemyShip2.class);
-           MyWorld world = (MyWorld) getWorld();
+            removeTouching(EnemyShip2.class);
+            MyWorld world = (MyWorld) getWorld();
+            ExplosionEnemy explosion = new ExplosionEnemy();
+            world.addObject(explosion,playLaserx,playLasery);
+            if(animationTimer.millisElapsed() > 500)
+           {
+                world.removeObject(explosion);
+           } 
            world.removeObject(this);
            world.increaseScoreCount();
            world.createShip(); 
            destroySound.play();
         }
-        
+        else if(isTouching(EnemyShip3.class))
+        {
+            removeTouching(EnemyShip3.class);
+            MyWorld world = (MyWorld) getWorld();
+            ExplosionEnemy explosion = new ExplosionEnemy();
+            world.addObject(explosion,playLaserx,playLasery);
+            if(animationTimer.millisElapsed() > 500)
+           {
+                world.removeObject(explosion);
+           } 
+           world.removeObject(this);
+           world.increaseScoreCount();
+           world.createShip(); 
+           destroySound.play();
+        }
         else
         {
             MyWorld world = (MyWorld) getWorld();          
@@ -67,7 +102,8 @@ public class PlayerLaser extends Actor
                 world.removeObject(this);
             }
         }
-
+        
+        
     }
 
 }
