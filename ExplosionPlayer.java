@@ -36,10 +36,10 @@ public class ExplosionPlayer extends Actor
     
     public void removeExplosion()
     {
-        MyWorld world = (MyWorld) getWorld();
+        GameOver gameover = (GameOver) getWorld();
         if(explosionTimer.millisElapsed() >= 500)
         {
-            world.removeObject(this);
+            gameover.removeObject(this);
         }
         
     }

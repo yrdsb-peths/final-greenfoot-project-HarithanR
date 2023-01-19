@@ -37,7 +37,7 @@ public class Titlescreen extends World
     {
         DecorationPlayerShip decorationPlayerShip = new DecorationPlayerShip();
         addObject(decorationPlayerShip,294,238);
-        decorationPlayerShip.setLocation(306,245);
+        decorationPlayerShip.setLocation(306,255);
         ExtrasMyWorld extrasMyWorld = new ExtrasMyWorld();
         addObject(extrasMyWorld,478,69);
         ExtrasMyWorld extrasMyWorld2 = new ExtrasMyWorld();

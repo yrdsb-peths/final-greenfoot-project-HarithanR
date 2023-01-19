@@ -12,9 +12,8 @@ public class GameOver extends World
     Label restartLabel = new Label("Press R to restart", 50);
     Label leaveLabel = new Label("Press esc to go back to the menu", 40);
     DecorationPlayerShip decorationPlayerShip = new DecorationPlayerShip();
-    SimpleTimer titleTimer = new SimpleTimer();
-    SimpleTimer shipTimer = new SimpleTimer();
-    SimpleTimer animationTimer = new SimpleTimer();
+    SimpleTimer timer = new SimpleTimer();
+
     GreenfootSound gameOverSound = new GreenfootSound("Sudocolon_Icy_Game_Over.mp3");
     GreenfootSound destroySound = new GreenfootSound("TinyWorlds_explosion.wav");
     /**
@@ -26,7 +25,7 @@ public class GameOver extends World
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1); 
         //addObject(titleLabel, getWidth()/2, 50);
-        
+        timer.mark();
         prepare();
     }
     
@@ -133,36 +132,24 @@ public class GameOver extends World
             Titlescreen menu = new Titlescreen();
             Greenfoot.setWorld(menu);
         }
-        shipTimer.mark();
-        if(shipTimer.millisElapsed() > 500)
-        {
-            titleTimer.mark();
-            animationTimer.mark();
-        }
         
-        if(titleTimer.millisElapsed() > 750 && titleTimer.millisElapsed() < 800)
+        
+        if(timer.millisElapsed() > 750 && timer.millisElapsed() < 800)
         {
             removeObject(decorationPlayerShip);
             destroySound.play();
             ExplosionPlayer explosion = new ExplosionPlayer();
             addObject(explosion,getWidth()/2,265); 
         }  
+
         
-        if(animationTimer.millisElapsed() == 500)
-        {
-            ExplosionPlayer explosion = new ExplosionPlayer();
-            removeObject(explosion);
-        }
-        
-        if(titleTimer.millisElapsed() > 2000 && titleTimer.millisElapsed() < 2200)
+        if(timer.millisElapsed() > 2000 && timer.millisElapsed() < 2200)
         {
             addObject(titleLabel, getWidth()/2, 50);
             addObject(restartLabel, getWidth()/2, 100);
             addObject(leaveLabel, getWidth()/2, 150);
             
             gameOverSound.play();
-        }
-        
-        
+        }        
     }
 }

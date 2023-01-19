@@ -69,7 +69,7 @@ public class EnemyShip3 extends Actor
         else
         {
             MyWorld world = (MyWorld) getWorld();          
-            if(getY() ==  380)
+            if(getY() >=  380)
             {
                 world.decreaseLife();
                 world.createShip();

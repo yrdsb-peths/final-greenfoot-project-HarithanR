@@ -17,71 +17,65 @@ public class PlayerLaser extends Actor
      * Act - do whatever the playerLaser wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    
-    
+
     public void act()
     {
         //animationTimer.mark();
         playLaserx = getX();
         playLasery = getY();
-        
+
         playLasery = playLasery - 4;
-        
+
         /*do
         {
-           playLasery = getY() - 4; 
+        playLasery = getY() - 4; 
         }while(getY() >= 400);*/
-        
-        
+
         setLocation(playLaserx, playLasery);
-        
         /**
          * Sets up the losing condition for the game. When the apple reaches
          * lower than the bottom of the world's height, text saying "Game
          * Over" will be placed in the middle of the screen.
          */
-     
+
         destroyShip(); 
     }
-     
+
     public void destroyShip()
     {
         if(isTouching(EnemyShip1.class))
         {
-            animationTimer.mark();
             removeTouching(EnemyShip1.class);
             MyWorld world = (MyWorld) getWorld();
+            destroySound.play();
             ExplosionEnemy explosion = new ExplosionEnemy();
             world.addObject(explosion,playLaserx,playLasery);
             world.removeObject(this);
             world.increaseScoreCount();
             world.createShip();
-            destroySound.play();
-            
 
         }
-        
         else if(isTouching(EnemyShip2.class))
         {
             removeTouching(EnemyShip2.class);
             MyWorld world = (MyWorld) getWorld();
+            destroySound.play();
             ExplosionEnemy explosion = new ExplosionEnemy();
             world.addObject(explosion,playLaserx,playLasery);
-           world.removeObject(this);
-           world.increaseScoreCount();
-           world.createShip(); 
-           destroySound.play();
+            world.removeObject(this);
+            world.increaseScoreCount();
+            world.createShip(); 
         }
         else if(isTouching(EnemyShip3.class))
         {
             removeTouching(EnemyShip3.class);
             MyWorld world = (MyWorld) getWorld();
+            destroySound.play();
             ExplosionEnemy explosion = new ExplosionEnemy();
             world.addObject(explosion,playLaserx,playLasery);
-           world.removeObject(this);
-           world.increaseScoreCount();
-           world.createShip(); 
-           destroySound.play();
+            world.removeObject(this);
+            world.increaseScoreCount();
+            world.createShip(); 
         }
         else
         {
@@ -91,8 +85,6 @@ public class PlayerLaser extends Actor
                 world.removeObject(this);
             }
         }
-        
-        
-    }
 
+    }
 }

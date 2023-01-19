@@ -27,7 +27,7 @@ public class EnemyShip1 extends Actor
     {
         eShipx = getX();
         eShipy = getY();
-        setLocation(getX(), getY() + 2);
+        setLocation(getX(), getY() + 3);
         tim1.mark();
         
         destroy();
@@ -53,7 +53,7 @@ public class EnemyShip1 extends Actor
         else
         {
             MyWorld world = (MyWorld) getWorld();          
-            if(getY() ==  390)
+            if(getY() >=  390)
             {
                 world.decreaseLife();
                 world.removeObject(this);
