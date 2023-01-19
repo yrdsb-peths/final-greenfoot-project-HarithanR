@@ -20,7 +20,7 @@ public class ExplosionEnemy extends Actor
         animationTimer.mark();
         setImage(eExplosion[0]);
     }
-    
+
     int imageIndex = 0;
     public void animateEnemyExplosion()
     {
@@ -32,7 +32,7 @@ public class ExplosionEnemy extends Actor
         setImage(eExplosion[imageIndex]);
         imageIndex = (imageIndex + 1) % eExplosion.length;
     }
-    
+
     public void removeExplosion()
     {
         MyWorld world = (MyWorld) getWorld();
@@ -40,9 +40,9 @@ public class ExplosionEnemy extends Actor
         {
             world.removeObject(this);
         }
-        
+
     }
-    
+
     public void act()
     {
         animateEnemyExplosion();

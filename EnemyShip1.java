@@ -18,21 +18,22 @@ public class EnemyShip1 extends Actor
      */
     public EnemyShip1()
     {
-       GreenfootImage image = getImage();
-       image.scale(image.getWidth() - 225, image.getHeight() - 225);
-       setImage(image);
+        GreenfootImage image = getImage();
+        image.scale(image.getWidth() - 225, image.getHeight() - 225);
+        setImage(image);
     }
-    
+
     public void act()
     {
         eShipx = getX();
         eShipy = getY();
         setLocation(getX(), getY() + 3);
         tim1.mark();
-        
+
         destroy();
-        
+
     }
+
     public void destroy()
     {
 
@@ -43,9 +44,9 @@ public class EnemyShip1 extends Actor
             ExplosionEnemy explosion = new ExplosionEnemy();
             world.addObject(explosion,eShipx,eShipy);
             if(tim1.millisElapsed() > 150)
-           {
+            {
                 world.removeObject(explosion);
-           } 
+            } 
             world.removeObject(this);
             world.increaseScoreCount();           
             world.createShip();             
@@ -61,34 +62,33 @@ public class EnemyShip1 extends Actor
             }
         }
     }
+
     public void setPlayerLocation(int ex, int ey)
     {
         ex = eShipx;
         ey = eShipy;
     }
-    
+
     public int getEnemyLocationx(int ex)
     {
         return ex;
     }
-    
+
     public int getEnemyLocationy(int ey)
     {
         return ey;
     }
-    
+
     /*public void creationTimer()
     {
-        
-        if(spawnTimer.millisElapsed() > 1000)
-        {
-            spawnTimer.mark();
-            MyWorld world = (MyWorld) getWorld();
-            world.createShip();
-        }
-    }*/
-    
-    
 
-    
+    if(spawnTimer.millisElapsed() > 1000)
+    {
+    spawnTimer.mark();
+    MyWorld world = (MyWorld) getWorld();
+    world.createShip();
+    }
+    }*/
+
+
 }

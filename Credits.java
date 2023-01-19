@@ -1,44 +1,40 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Titlescreen here.
+ * Write a description of class Credits here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Titlescreen extends World
+public class Credits extends World
 {
-    Label titleLabel = new Label("Low Effort Space Shooter", 50);
-    Label instruction1 = new Label("Use <-- and --> or A and D to move", 30);
-    Label instruction2 = new Label("Press or hold space to shoot", 30);
-    Label instruction3 = new Label("Press enter to start the game", 30);
-    Label instruction4 = new Label("Press C to visit the credits", 30);
+    Label titleLabel = new Label("Credits:", 50);
+    Label credits1 = new Label("Ansimuz:Backgrounds", 30);
+    Label credits2 = new Label("MillionthVector:Player Ship", 30);
+    Label credits3 = new Label("Rawdanitsu:Lasers", 30);
+    Label credits4 = new Label("Skorpio:Enemy Ships", 30);
+    Label credits5 = new Label("Master484:Explosions", 30);
+    Label leave = new Label("Press c to return to the main menu", 30);
     /**
-     * Constructor for objects of class Titlescreen.
+     * Constructor for objects of class Credits.
      * 
      */
-    public Titlescreen()
+    public Credits()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1); 
-
         addObject(titleLabel, getWidth()/2, 20);
-        addObject(instruction1, getWidth()/2, 60);
-        addObject(instruction2, getWidth()/2, 100);
-        addObject(instruction3, getWidth()/2, 140);
-        addObject(instruction4, getWidth()/2, 180);
+        addObject(credits1, getWidth()/2, 60);
+        addObject(credits2, getWidth()/2, 100);
+        addObject(credits3, getWidth()/2, 140);
+        addObject(credits4, getWidth()/2, 180);
+        addObject(credits5, getWidth()/2, 220);
+        addObject(leave, getWidth()/2, 260);
         prepare();
     }
 
-    /**
-     * Prepare the world for the start of the program.
-     * That is: create the initial objects and add them to the world.
-     */
-    private void prepare()
+    public void prepare()
     {
-        DecorationPlayerShip decorationPlayerShip = new DecorationPlayerShip();
-        addObject(decorationPlayerShip,294,238);
-        decorationPlayerShip.setLocation(306,285);
         ExtrasMyWorld extrasMyWorld = new ExtrasMyWorld();
         addObject(extrasMyWorld,478,69);
         ExtrasMyWorld extrasMyWorld2 = new ExtrasMyWorld();
@@ -119,20 +115,5 @@ public class Titlescreen extends World
         extrasMyWorld10.setLocation(158,101);
         ExtrasMyWorld extrasMyWorld33 = new ExtrasMyWorld();
         addObject(extrasMyWorld33,158,101);
-    }
-
-    public void act()
-    {
-        if(Greenfoot.isKeyDown("enter"))
-        {
-            MyWorld world = new MyWorld();
-            Greenfoot.setWorld(world);
-        }
-
-        if(Greenfoot.isKeyDown("c"))
-        {
-            Credits credits = new Credits();
-            Greenfoot.setWorld(credits);
-        }
     }
 }

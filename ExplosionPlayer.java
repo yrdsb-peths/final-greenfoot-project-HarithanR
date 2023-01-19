@@ -21,7 +21,7 @@ public class ExplosionPlayer extends Actor
         animationTimer.mark();
         setImage(eExplosion[0]);
     }
-    
+
     int imageIndex = 0;
     public void animateEnemyExplosion()
     {
@@ -33,7 +33,7 @@ public class ExplosionPlayer extends Actor
         setImage(eExplosion[imageIndex]);
         imageIndex = (imageIndex + 1) % eExplosion.length;
     }
-    
+
     public void removeExplosion()
     {
         GameOver gameover = (GameOver) getWorld();
@@ -41,9 +41,9 @@ public class ExplosionPlayer extends Actor
         {
             gameover.removeObject(this);
         }
-        
+
     }
-    
+
     public void act()
     {
         animateEnemyExplosion();

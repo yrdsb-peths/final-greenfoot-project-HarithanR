@@ -20,39 +20,38 @@ public class EnemyShip3 extends Actor
      */
     public EnemyShip3()
     {
-       GreenfootImage image = getImage();
-       image.scale(image.getWidth() - 75, image.getHeight() - 165);
-       setImage(image);
+        GreenfootImage image = getImage();
+        image.scale(image.getWidth() - 75, image.getHeight() - 165);
+        setImage(image);
     }
-    
+
     public void act()
     {
         eShipx = getX();
         eShipy = getY();
         setLocation(eShipx, eShipy + 1);
-        
+
         //createLaser();
         if(canShoot)
         {
             canShoot = false;
- 
 
             spawnLaser.mark();
- 
             MyWorld world = (MyWorld) getWorld();
             EnemyLaser eLaser = new EnemyLaser();
             world.addObject(eLaser,eShipx,eShipy + 50);
             blastSound.play();
         }
-        
+
         if(spawnLaser.millisElapsed() > 850)
         {
             canShoot = true;
-            
+
         }
         destroy();
         //creationTimer();
     }
+
     public void destroy()
     {
 
@@ -65,7 +64,7 @@ public class EnemyShip3 extends Actor
             world.removeObject(this);
             destroySound.play();
         }
-            
+
         else
         {
             MyWorld world = (MyWorld) getWorld();          
@@ -77,29 +76,28 @@ public class EnemyShip3 extends Actor
             }
         }
     }
-    
+
     public void createLaser()
     {
         /*spawnLaser.mark();
         if(spawnLaser.millisElapsed() > 550)
         {
-            MyWorld world = (MyWorld) getWorld();
-            EnemyLaser eLaser = new EnemyLaser();
-            world.addObject(eLaser,eShipx, eShipy + 20);      
+        MyWorld world = (MyWorld) getWorld();
+        EnemyLaser eLaser = new EnemyLaser();
+        world.addObject(eLaser,eShipx, eShipy + 20);      
         }*/
-        
+
     }
-    
-    
+
     
     public void creationTimer()
     {
-        
+
         /*if(spawnTimer.millisElapsed() > 1000)
         {
-            spawnTimer.mark();
-            MyWorld world = (MyWorld) getWorld();
-            world.createShip();
+        spawnTimer.mark();
+        MyWorld world = (MyWorld) getWorld();
+        world.createShip();
         }*/
     }
 }

@@ -22,7 +22,7 @@ public class MyWorld extends World
     GreenfootSound mainTheme = new GreenfootSound("Matthew_Pablo_Orbital_Colossus.mp3");
     GreenfootSound win = new GreenfootSound("Celestialghost8_Victory.mp3");
     SimpleTimer winTimer = new SimpleTimer();
-    
+
     /**
      * Constructor for objects of class MyWorld.
      * 
@@ -31,31 +31,29 @@ public class MyWorld extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1);
- 
-       
+
         
         Label titleScoreLabel = new Label("Score:", 30);
         addObject(titleScoreLabel, 75, 45);
-        
+
         scoreLabel = new Label(totalScore, 30);
         addObject(scoreLabel, 150, 45);
 
-        
         Label titleLifeLabel = new Label("Lives: ", 30);
         addObject(titleLifeLabel, 540, 45);
-        
+
         lifeLabel = new Label(lives, 30);
         addObject(lifeLabel, 580, 45);
-       
-        
+
         pShip = new PlayerShip();
         addObject(pShip, pShip.pShipx, pShip.pShipy);
-        
+
         createShip();            
 
         prepare();
-       
+
     }
+
     public void createShip()
     {
         /**
@@ -70,7 +68,7 @@ public class MyWorld extends World
             int y = 0;
             addObject(ship1, x, y);
         }
-        
+
         else if(difficulty == 2)
         {
             removeObject(ship1);
@@ -79,7 +77,7 @@ public class MyWorld extends World
             int y = 0;
             addObject(ship2, x, y);
         }
-        
+
         else if(difficulty == 3)
         {
             removeObject(ship2);
@@ -88,12 +86,12 @@ public class MyWorld extends World
             int y = 0;
             addObject(ship3, x, y);
         }
-        
+
         else if(difficulty == 4)
         {
             removeObject(ship3);
             win.play();
-            
+
             if(winTimer.millisElapsed() > 3000)
             {
                 winTimer.mark();
@@ -102,7 +100,7 @@ public class MyWorld extends World
             }
         }
     }
-    
+
     public void gameOver()
     {
         /**
@@ -113,7 +111,6 @@ public class MyWorld extends World
         Label gameOverLabel = new Label("Game Over", 100);
         addObject(gameOverLabel, 300, 200);
     }
-     
 
 
     public void act()
@@ -125,53 +122,52 @@ public class MyWorld extends World
             addObject(defeat, getWidth()/2, getHeight()/2);*/
             GameOver gameOver = new GameOver();
             Greenfoot.setWorld(gameOver);
-            
+
             mainTheme.stop();
         }
-        
+
         if(totalScore >= 5000 && totalScore <= 15000)
         {
             difficulty = 2;
         }
-        
+
         else if(totalScore > 15000 && totalScore < 25000)
         {
             difficulty = 3;
         }
-        
+
         else if(totalScore > 25000)
         {
             difficulty = 4;
             mainTheme.stop();
         }
     }
-    
-    
+
     public void decreaseLife()
     {
         lives--;
         lifeLabel.setValue(lives);
- 
+
     }
-    
+
     public void increaseScoreCount()
     {
         if(difficulty == 1)
         {
-           totalScore += score[0]; 
+            totalScore += score[0]; 
         }
         else if(difficulty == 2)
         {
-           totalScore += score[1];
+            totalScore += score[1];
         }
         else if(difficulty == 3)
         {
             totalScore += score[2];
         }
         scoreLabel.setValue(totalScore);
-   
+
     }
-    
+
     /**
      * Prepare the world for the start of the program.
      * That is: create the initial objects and add them to the world.

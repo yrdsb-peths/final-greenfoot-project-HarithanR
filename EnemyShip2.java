@@ -14,35 +14,34 @@ public class EnemyShip2 extends Actor
      */
     public EnemyShip2()
     {
-       GreenfootImage image = getImage();
-       image.scale(image.getWidth() - 75, image.getHeight() - 75);
-       setImage(image);
+        GreenfootImage image = getImage();
+        image.scale(image.getWidth() - 75, image.getHeight() - 75);
+        setImage(image);
     }
-    
+
     public void act()
     {
         setLocation(getX(), getY() + 5);
         //outOfBounds();
         destroy2();
-        
-        
+
         
     }
-    
+
     /*public void outOfBounds()
     {
-        MyWorld world = (MyWorld) getWorld();
-        if(getY() >= world.getHeight())
-        {
-            world.decreaseLife();
-            world.removeObject(this);
-        }
+    MyWorld world = (MyWorld) getWorld();
+    if(getY() >= world.getHeight())
+    {
+    world.decreaseLife();
+    world.removeObject(this);
+    }
     }*/
-    
-     /* Act - do whatever the EnemyShip2 wants to do. This method is called whenever
+
+    /* Act - do whatever the EnemyShip2 wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    
+
     public void destroy2()
     {
 
@@ -64,6 +63,6 @@ public class EnemyShip2 extends Actor
                 world.createShip();
             }
         }
-        
+
     }
 }

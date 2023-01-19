@@ -28,7 +28,7 @@ public class GameOver extends World
         timer.mark();
         prepare();
     }
-    
+
     /**
      * Prepare the world for the start of the program.
      * That is: create the initial objects and add them to the world.
@@ -118,7 +118,7 @@ public class GameOver extends World
         ExtrasMyWorld extrasMyWorld33 = new ExtrasMyWorld();
         addObject(extrasMyWorld33,158,101);
     }
-    
+
     public void act()
     {
         if(Greenfoot.isKeyDown("r"))
@@ -126,14 +126,13 @@ public class GameOver extends World
             MyWorld world = new MyWorld();
             Greenfoot.setWorld(world);
         }
-        
+
         if(Greenfoot.isKeyDown("escape"))
         {
             Titlescreen menu = new Titlescreen();
             Greenfoot.setWorld(menu);
         }
-        
-        
+
         if(timer.millisElapsed() > 750 && timer.millisElapsed() < 800)
         {
             removeObject(decorationPlayerShip);
@@ -142,13 +141,12 @@ public class GameOver extends World
             addObject(explosion,getWidth()/2,265); 
         }  
 
-        
         if(timer.millisElapsed() > 2000 && timer.millisElapsed() < 2200)
         {
             addObject(titleLabel, getWidth()/2, 50);
             addObject(restartLabel, getWidth()/2, 100);
             addObject(leaveLabel, getWidth()/2, 150);
-            
+
             gameOverSound.play();
         }        
     }
