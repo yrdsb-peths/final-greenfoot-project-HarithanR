@@ -10,6 +10,7 @@ public class GameOver extends World
 {
     Label titleLabel = new Label("Game Over", 50);
     Label restartLabel = new Label("Press R to restart", 50);
+    Label leaveLabel = new Label("Press esc to go back to the menu", 40);
     DecorationPlayerShip decorationPlayerShip = new DecorationPlayerShip();
     SimpleTimer titleTimer = new SimpleTimer();
     SimpleTimer shipTimer = new SimpleTimer();
@@ -36,7 +37,7 @@ public class GameOver extends World
     private void prepare()
     {
         addObject(decorationPlayerShip,285,191);
-        decorationPlayerShip.setLocation(300,206);
+        decorationPlayerShip.setLocation(300,265);
         ExtrasMyWorld extrasMyWorld = new ExtrasMyWorld();
         addObject(extrasMyWorld,478,69);
         ExtrasMyWorld extrasMyWorld2 = new ExtrasMyWorld();
@@ -126,6 +127,12 @@ public class GameOver extends World
             MyWorld world = new MyWorld();
             Greenfoot.setWorld(world);
         }
+        
+        if(Greenfoot.isKeyDown("escape"))
+        {
+            Titlescreen menu = new Titlescreen();
+            Greenfoot.setWorld(menu);
+        }
         shipTimer.mark();
         if(shipTimer.millisElapsed() > 500)
         {
@@ -138,7 +145,7 @@ public class GameOver extends World
             removeObject(decorationPlayerShip);
             destroySound.play();
             ExplosionPlayer explosion = new ExplosionPlayer();
-            addObject(explosion,getWidth()/2,getHeight()/2); 
+            addObject(explosion,getWidth()/2,265); 
         }  
         
         if(animationTimer.millisElapsed() == 500)
@@ -151,6 +158,7 @@ public class GameOver extends World
         {
             addObject(titleLabel, getWidth()/2, 50);
             addObject(restartLabel, getWidth()/2, 100);
+            addObject(leaveLabel, getWidth()/2, 150);
             
             gameOverSound.play();
         }

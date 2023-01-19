@@ -12,6 +12,7 @@ public class Titlescreen extends World
     Label instruction1 = new Label("Use <-- and --> or A and D to move", 30);
     Label instruction2 = new Label("Press or hold space to shoot", 30);
     Label instruction3 = new Label("Press enter to start the game", 30);
+    Label totalScore = new Label("Total score:", 30);
     /**
      * Constructor for objects of class Titlescreen.
      * 
@@ -25,6 +26,7 @@ public class Titlescreen extends World
         addObject(instruction1, getWidth()/2, 60);
         addObject(instruction2, getWidth()/2, 100);
         addObject(instruction3, getWidth()/2, 140);
+        //addObject(totalScore, getWidth()/2, 360);
         prepare();
     }
     

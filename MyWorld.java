@@ -134,7 +134,7 @@ public class MyWorld extends World
             difficulty = 2;
         }
         
-        else if(totalScore > 15000 && totalScore <= 25000)
+        else if(totalScore > 15000 && totalScore < 25000)
         {
             difficulty = 3;
         }
