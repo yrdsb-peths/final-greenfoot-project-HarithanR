@@ -171,8 +171,7 @@ public class MyWorld extends World
         scoreLabel.setValue(totalScore);
    
     }
-
-  
+    
     /**
      * Prepare the world for the start of the program.
      * That is: create the initial objects and add them to the world.

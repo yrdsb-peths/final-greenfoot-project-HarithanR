@@ -21,7 +21,7 @@ public class PlayerLaser extends Actor
     
     public void act()
     {
-        animationTimer.mark();
+        //animationTimer.mark();
         playLaserx = getX();
         playLasery = getY();
         
@@ -48,14 +48,15 @@ public class PlayerLaser extends Actor
     {
         if(isTouching(EnemyShip1.class))
         {
+            animationTimer.mark();
             removeTouching(EnemyShip1.class);
             MyWorld world = (MyWorld) getWorld();
             ExplosionEnemy explosion = new ExplosionEnemy();
             world.addObject(explosion,playLaserx,playLasery);
-            if(animationTimer.millisElapsed() > 500)
+            /*if(animationTimer.millisElapsed() >= 500)
            {
                 world.removeObject(explosion);
-           } 
+           }*/ 
             world.removeObject(this);
             world.increaseScoreCount();
             world.createShip();
