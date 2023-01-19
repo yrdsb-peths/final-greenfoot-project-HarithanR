@@ -10,6 +10,7 @@ public class ExplosionPlayer extends Actor
 {
     GreenfootImage[] eExplosion = new GreenfootImage[6];
     SimpleTimer animationTimer = new SimpleTimer();
+    SimpleTimer explosionTimer = new SimpleTimer();
     public ExplosionPlayer()
     {
         for(int i = 0; i < 6; i++)
@@ -33,8 +34,19 @@ public class ExplosionPlayer extends Actor
         imageIndex = (imageIndex + 1) % eExplosion.length;
     }
     
+    public void removeExplosion()
+    {
+        MyWorld world = (MyWorld) getWorld();
+        if(explosionTimer.millisElapsed() >= 500)
+        {
+            world.removeObject(this);
+        }
+        
+    }
+    
     public void act()
     {
         animateEnemyExplosion();
+        removeExplosion();
     }
 }

@@ -36,12 +36,13 @@ public class ExplosionEnemy extends Actor
     public void removeExplosion()
     {
         MyWorld world = (MyWorld) getWorld();
-        if(explosionTimer.millisElapsed() >= 600)
+        if(explosionTimer.millisElapsed() >= 500)
         {
             world.removeObject(this);
         }
         
     }
+    
     public void act()
     {
         animateEnemyExplosion();

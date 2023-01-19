@@ -53,10 +53,6 @@ public class PlayerLaser extends Actor
             MyWorld world = (MyWorld) getWorld();
             ExplosionEnemy explosion = new ExplosionEnemy();
             world.addObject(explosion,playLaserx,playLasery);
-            /*if(animationTimer.millisElapsed() >= 500)
-           {
-                world.removeObject(explosion);
-           }*/ 
             world.removeObject(this);
             world.increaseScoreCount();
             world.createShip();
@@ -71,10 +67,6 @@ public class PlayerLaser extends Actor
             MyWorld world = (MyWorld) getWorld();
             ExplosionEnemy explosion = new ExplosionEnemy();
             world.addObject(explosion,playLaserx,playLasery);
-            if(animationTimer.millisElapsed() > 500)
-           {
-                world.removeObject(explosion);
-           } 
            world.removeObject(this);
            world.increaseScoreCount();
            world.createShip(); 
@@ -86,10 +78,6 @@ public class PlayerLaser extends Actor
             MyWorld world = (MyWorld) getWorld();
             ExplosionEnemy explosion = new ExplosionEnemy();
             world.addObject(explosion,playLaserx,playLasery);
-            if(animationTimer.millisElapsed() > 500)
-           {
-                world.removeObject(explosion);
-           } 
            world.removeObject(this);
            world.increaseScoreCount();
            world.createShip(); 
