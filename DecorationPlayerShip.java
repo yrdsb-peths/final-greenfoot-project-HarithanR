@@ -1,10 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class DecorationPlayerShip here.
+ * A version of playerShip used for both the game over and title screens.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * Harithan Raveendran
+ * January 2023
  */
 public class DecorationPlayerShip extends Actor
 {
@@ -17,6 +17,7 @@ public class DecorationPlayerShip extends Actor
        
     }
     
+    //Sets the image's size.
     public DecorationPlayerShip()
     {
        GreenfootImage image = getImage();

@@ -1,16 +1,18 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class ExplosionEnemy here.
+ * The explosion the enemy creates upon dying.
  * 
- * @author (your name) 
- * @version (a version number or a date)
- */
+ * Harithan Raveendran
+ * January 2023
+*/
 public class ExplosionEnemy extends Actor
 {
+    //Sets up an array and two timers for the classes below.
     GreenfootImage[] eExplosion = new GreenfootImage[6];
     SimpleTimer animationTimer = new SimpleTimer();
     SimpleTimer explosionTimer = new SimpleTimer();
+    //Animates the explosion
     public ExplosionEnemy()
     {
         for(int i = 0; i < 6; i++)
@@ -22,6 +24,7 @@ public class ExplosionEnemy extends Actor
     }
 
     int imageIndex = 0;
+    //Also animates the explosion
     public void animateEnemyExplosion()
     {
         if(animationTimer.millisElapsed() < 75)
@@ -32,7 +35,8 @@ public class ExplosionEnemy extends Actor
         setImage(eExplosion[imageIndex]);
         imageIndex = (imageIndex + 1) % eExplosion.length;
     }
-
+    
+    //Removes the explosion upon finishing one full cycle.
     public void removeExplosion()
     {
         MyWorld world = (MyWorld) getWorld();
@@ -42,7 +46,8 @@ public class ExplosionEnemy extends Actor
         }
 
     }
-
+    
+    //The class that implements the ones before it to allow them to work.
     public void act()
     {
         animateEnemyExplosion();

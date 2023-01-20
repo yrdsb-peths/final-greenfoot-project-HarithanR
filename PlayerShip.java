@@ -9,6 +9,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 public class PlayerShip extends Actor
 {
+    //A few integers, sounds, timers and a boolean used for the classes below.
     public static int pShipx = 297;
     public static int pShipy = 356;
     boolean canShoot = true;
@@ -22,6 +23,7 @@ public class PlayerShip extends Actor
 
     SimpleTimer pLaserCooldown = new SimpleTimer();
     SimpleTimer animationTimer = new SimpleTimer();
+    //Sets the size of the image.
     public PlayerShip()
     {
         GreenfootImage image = getImage();
@@ -29,6 +31,7 @@ public class PlayerShip extends Actor
         setImage(image); 
     }
 
+    //Allows the player to move left and right and shoot.
     public void act()
     {
         if(Greenfoot.isKeyDown("left") || Greenfoot.isKeyDown("a"))
@@ -53,14 +56,16 @@ public class PlayerShip extends Actor
             world.addObject(pLaser,pShipx,316);
             blastSound.play();
         }
-
+        
+        //Code that prevents the player ship from constantly firing lasers.
         if(pLaserCooldown.millisElapsed() > 550)
         {
             canShoot = true;
         }
         damage();
     }
-
+    
+    //Code that reduces the player's lives upon touching any of the enemy ships with the player ship.
     public void damage()
     {
         if(isTouching(EnemyShip1.class))
@@ -108,7 +113,8 @@ public class PlayerShip extends Actor
             destroySound.play();
         }
     }
-
+    
+    //Code that decreases the player's lives upon touching the third enemy ship's lasers.
     public void injure()
     {
         if(isTouching(EnemyLaser.class))
@@ -118,7 +124,8 @@ public class PlayerShip extends Actor
             world.decreaseLife();
         }
     }
-
+    
+    //A series of methods that set and get the player's x and y coordinates.
     public void setPlayerLocation(int px, int py)
     {
         px = pShipx;

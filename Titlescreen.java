@@ -1,20 +1,22 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Titlescreen here.
+ * The starting world for the user.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * Harithan Raveendran 
+ * January 2023
  */
 public class Titlescreen extends World
 {
+    //Sets up several labels to be used in the titlescreen class.
     Label titleLabel = new Label("Low Effort Space Shooter", 50);
     Label instruction1 = new Label("Use <-- and --> or A and D to move", 30);
     Label instruction2 = new Label("Press or hold space to shoot", 30);
     Label instruction3 = new Label("Press enter to start the game", 30);
     Label instruction4 = new Label("Press C to visit the credits", 30);
     /**
-     * Constructor for objects of class Titlescreen.
+     * Adds the previous mentioned labels into the Titlescreen world as lines of text. 
+     * Also adds objects under the prepare class.
      * 
      */
     public Titlescreen()
@@ -120,7 +122,10 @@ public class Titlescreen extends World
         ExtrasMyWorld extrasMyWorld33 = new ExtrasMyWorld();
         addObject(extrasMyWorld33,158,101);
     }
-
+    /*
+     * Takes the player to different worlds depending on the keys they press. Enter takes them to the main world where the user plays the
+     * game. "C" takes them to the credits screen.
+     */
     public void act()
     {
         if(Greenfoot.isKeyDown("enter"))
