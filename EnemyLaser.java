@@ -1,17 +1,16 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class EnemyLaser here.
+ * The laser the third enemy ship fires.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * Harithan Raveendran
+ * January 2023
  */
 public class EnemyLaser extends Actor
 {
 
     /**
-     * Act - do whatever the playerLaser wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
+     * Sets the laser's coordinates. Also allows it to move.
      */
 
     public void act()
@@ -22,15 +21,12 @@ public class EnemyLaser extends Actor
         y = y + 7;
 
         setLocation(x, y);
-
-        /**
-         * Sets up the losing condition for the game. When the apple reaches
-         * lower than the bottom of the world's height, text saying "Game
-         * Over" will be placed in the middle of the screen.
-         */
+        
+        //Removes the laser upon reaching the edge of the world.
         if (y > getWorld().getHeight()){
             getWorld().removeObject(this);
         }
+        //Decreases the user's lives and disappears upon touching the player ship.
         else if(isTouching(PlayerShip.class))
         {
             MyWorld world = (MyWorld) getWorld();

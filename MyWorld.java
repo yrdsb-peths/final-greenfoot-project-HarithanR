@@ -1,13 +1,14 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * The world where all the spaceships reside.
+ * The world where the game takes place..
  * 
  * Harithan Raveendran 
  * @December 2022
  */
 public class MyWorld extends World
 {
+    //Sets up several labels, sounds, and integers for the code in the classes below.
     Label scoreLabel;
     Label lifeLabel;
     public int enemyCount = 2;
@@ -23,7 +24,9 @@ public class MyWorld extends World
     GreenfootSound win = new GreenfootSound("Celestialghost8_Victory.mp3");
     SimpleTimer winTimer = new SimpleTimer();
     /**
-     * Constructor for objects of class MyWorld.
+     * The code relating to labels adds text to the top left and right of the world. On the left lies the score. Whereas on the right
+     * exists the amount of lives the player has. The coordinates for the player ship is also placed here. On top of this, the createShip
+     * class functions here as well.
      * 
      */
     public MyWorld()
@@ -56,9 +59,7 @@ public class MyWorld extends World
     public void createShip()
     {
         /**
-         * Creates an apple for the player to catch. The apple can appear
-         * anywhere randomly on the top of the map. Once it has been
-         * caught, another spawns in.
+         * This is where the enemy ships are created. The kind of ship the player faces against is dependant on the difficulty level.
          */
         if(difficulty == 1)
         {
@@ -96,9 +97,7 @@ public class MyWorld extends World
     public void gameOver()
     {
         /**
-         * Creates a lose condition for the player. In other words, once the
-         * apple falls out of the player's reach, text saying "Game Over"
-         * appears on the screen.
+         * When the player's lives reaches 0, they are taken to this screen. It is to them know they lost the game.
          */
         Label gameOverLabel = new Label("Game Over", 100);
         addObject(gameOverLabel, 300, 200);
@@ -107,7 +106,9 @@ public class MyWorld extends World
 
     public void act()
     {
+        //Plays the main theme of the game.
         mainTheme.play();
+        //Code that takes the player to the gameOver screen upon losing all their lives.
         if(lives == 0)
         {
             GameOver gameOver = new GameOver();
@@ -115,7 +116,8 @@ public class MyWorld extends World
 
             mainTheme.stop();
         }
-
+        
+        //Code that bases difficulty by how high the player's score is. This is also where the win screen is created.
         if(totalScore == 5000 && totalScore < 15000)
         {
             difficulty = 2;
@@ -147,13 +149,20 @@ public class MyWorld extends World
         }
     }
 
+    //Code that allows the player's life to decrease under the right conditions. 
+    // The lives displayed on the top right corner of the screen also decreases as well.
     public void decreaseLife()
     {
         lives--;
         lifeLabel.setValue(lives);
 
     }
-
+    
+    /*
+     * Increases the player's score count depending on the ship they kill.
+     * The more difficult a ship is to combat, the higher points they get for killing it.
+     * Score is displayed on the top left corner of MyWorld.
+     */ 
     public void increaseScoreCount()
     {
         if(difficulty == 1)

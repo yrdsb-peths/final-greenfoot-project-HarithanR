@@ -1,16 +1,18 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class ExplosionPlayer here.
+ * The explosion the player ship creates in the game over screen
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * Harithan Raveendran 
+ * January 2023
  */
 public class ExplosionPlayer extends Actor
 {
+    //Sets of an array and two timers for the classes below.
     GreenfootImage[] eExplosion = new GreenfootImage[6];
     SimpleTimer animationTimer = new SimpleTimer();
     SimpleTimer explosionTimer = new SimpleTimer();
+    //Animates the explosion.
     public ExplosionPlayer()
     {
         for(int i = 0; i < 6; i++)
@@ -23,6 +25,7 @@ public class ExplosionPlayer extends Actor
     }
 
     int imageIndex = 0;
+    //Also animates the explosion.
     public void animateEnemyExplosion()
     {
         if(animationTimer.millisElapsed() < 75)
@@ -34,6 +37,7 @@ public class ExplosionPlayer extends Actor
         imageIndex = (imageIndex + 1) % eExplosion.length;
     }
 
+    //Removes the explosion when it finishes one cycle.
     public void removeExplosion()
     {
         GameOver gameover = (GameOver) getWorld();
@@ -43,7 +47,8 @@ public class ExplosionPlayer extends Actor
         }
 
     }
-
+    
+    //Implements the previous classes' functions into one singular class.
     public void act()
     {
         animateEnemyExplosion();

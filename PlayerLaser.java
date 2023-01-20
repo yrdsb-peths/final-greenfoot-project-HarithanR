@@ -2,13 +2,14 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class playerLaser here.
+ * The laser the player shoots upon pressing space.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * Harithan Raveendran 
+ * January 2023
  */
 public class PlayerLaser extends Actor
 {
+    //Sets up integers, a sound file and an timer for the classes below.
     GreenfootSound destroySound = new GreenfootSound("TinyWorlds_explosion.wav");
     SimpleTimer animationTimer = new SimpleTimer();
     public static int playLaserx = 297;
@@ -20,27 +21,18 @@ public class PlayerLaser extends Actor
 
     public void act()
     {
-        //animationTimer.mark();
         playLaserx = getX();
         playLasery = getY();
 
         playLasery = playLasery - 4;
 
-        /*do
-        {
-        playLasery = getY() - 4; 
-        }while(getY() >= 400);*/
-
         setLocation(playLaserx, playLasery);
-        /**
-         * Sets up the losing condition for the game. When the apple reaches
-         * lower than the bottom of the world's height, text saying "Game
-         * Over" will be placed in the middle of the screen.
-         */
+      
 
         destroyShip(); 
     }
-
+    
+    //Allows the laser to destroy every ship it touches. Also removes it upon reaching the edge of the world.
     public void destroyShip()
     {
         if(isTouching(EnemyShip1.class))

@@ -1,13 +1,14 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Credits here.
+ * The credits screen. Shows the assets used and the creators they belong to.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * Harithan Raveendran 
+ * January 2023
  */
 public class Credits extends World
 {
+    //The lines of text used to display words in the credits screen.
     Label titleLabel = new Label("Credits:", 50);
     Label credits1 = new Label("Ansimuz:Background", 30);
     Label credits2 = new Label("MillionthVector:Player Ship", 30);
@@ -16,7 +17,7 @@ public class Credits extends World
     Label credits5 = new Label("Master484:Explosions", 30);
     Label leave = new Label("Press c to return to the main menu", 30);
     /**
-     * Constructor for objects of class Credits.
+     * Adds previously mentioned lines of text to the world.
      * 
      */
     public Credits()
@@ -32,7 +33,8 @@ public class Credits extends World
         addObject(leave, 190, 360);
         prepare();
     }
-
+    
+    //Adds background stars and the assets to the world.
     public void prepare()
     {
         ExtrasMyWorld extrasMyWorld = new ExtrasMyWorld();
@@ -152,6 +154,7 @@ public class Credits extends World
         addObject(creditsPlayerShip,325,120);
     }
     
+    //A method that allows the user to go back to the main menu upon pressing "c".
     public void act()
     {
         if(Greenfoot.isKeyDown("c"))

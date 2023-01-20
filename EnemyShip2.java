@@ -1,10 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class EnemyShip2 here.
+ * The second enemy the player faces in the game.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * Harithan Raveendran
+ * January 2023
  */
 public class EnemyShip2 extends Actor
 {
@@ -12,13 +12,15 @@ public class EnemyShip2 extends Actor
      * Act - do whatever the EnemyShip1 wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
+    //Sets the image's size.
     public EnemyShip2()
     {
         GreenfootImage image = getImage();
         image.scale(image.getWidth() - 75, image.getHeight() - 75);
         setImage(image);
     }
-
+    
+    //Allows the enemy ship to be move. Also adds class that allows it to be destroyed.
     public void act()
     {
         setLocation(getX(), getY() + 5);
@@ -28,18 +30,10 @@ public class EnemyShip2 extends Actor
         
     }
 
-    /*public void outOfBounds()
-    {
-    MyWorld world = (MyWorld) getWorld();
-    if(getY() >= world.getHeight())
-    {
-    world.decreaseLife();
-    world.removeObject(this);
-    }
-    }*/
 
-    /* Act - do whatever the EnemyShip2 wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
+    /*
+     * Allows the enemy ship to be destroyed upon touching the player's lasers, or despawn after reaching the edge of the world.
+     * The latter of which decreases the player's life.
      */
 
     public void destroy2()

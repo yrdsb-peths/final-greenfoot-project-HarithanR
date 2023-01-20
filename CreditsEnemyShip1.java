@@ -1,10 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class CreditsEnemyShip1 here.
+ * A verson of EnemyShip1 used for credit-related purposes
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * Harithan Raveendran
+ * January 2023
  */
 public class CreditsEnemyShip1 extends Actor
 {

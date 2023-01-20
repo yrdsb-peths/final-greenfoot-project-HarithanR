@@ -1,10 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class ExtrasMyWorld here.
+ * The stars that appear in the background. Purely decorational.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * Harithan Raveendran 
+ * January 2023
  */
 public class ExtrasMyWorld extends Actor
 {

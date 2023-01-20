@@ -1,13 +1,14 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class GameOver here.
+ * The screen that occurs whenever the player loses. In other words, loses all three of their lives.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * Harithan Raveendran 
+ * January 2023
  */
 public class GameOver extends World
 {
+    //Instances of several labels, sounds, an asset and a timer.
     Label titleLabel = new Label("Game Over", 50);
     Label restartLabel = new Label("Press R to restart", 50);
     Label leaveLabel = new Label("Press esc to go back to the menu", 40);
@@ -17,14 +18,13 @@ public class GameOver extends World
     GreenfootSound gameOverSound = new GreenfootSound("Sudocolon_Icy_Game_Over.mp3");
     GreenfootSound destroySound = new GreenfootSound("TinyWorlds_explosion.wav");
     /**
-     * Constructor for objects of class GameOver.
+     * Marks a timer for the act class and adds several new images to the world. Such as a player ship and the stars in the background.
      * 
      */
     public GameOver()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1); 
-        //addObject(titleLabel, getWidth()/2, 50);
         timer.mark();
         prepare();
     }
@@ -118,21 +118,28 @@ public class GameOver extends World
         ExtrasMyWorld extrasMyWorld33 = new ExtrasMyWorld();
         addObject(extrasMyWorld33,158,101);
     }
-
+    
+    /*
+     * This code consists of several buttons that lead the player to different worlds. It also sets up a timer to make the game over
+     * cutscene work.
+     */
     public void act()
     {
+        //Sends the player to the MyWorld world. In other words, it restarts the game.
         if(Greenfoot.isKeyDown("r"))
         {
             MyWorld world = new MyWorld();
             Greenfoot.setWorld(world);
         }
-
+        
+        //Sends the player to the main menu.
         if(Greenfoot.isKeyDown("escape"))
         {
             Titlescreen menu = new Titlescreen();
             Greenfoot.setWorld(menu);
         }
-
+        
+        //The following series of code is used to play the game over cutscene.
         if(timer.millisElapsed() > 750 && timer.millisElapsed() < 800)
         {
             removeObject(decorationPlayerShip);

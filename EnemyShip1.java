@@ -1,13 +1,14 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class EnemyShip1 here.
+ * The first enemy the player faces in the game.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * Harithan Raveendran
+ * January 2023
  */
 public class EnemyShip1 extends Actor
 {
+    //Sets up multiple classes and integers for the code in the classes below.
     SimpleTimer spawnTimer = new SimpleTimer();
     SimpleTimer tim1 = new SimpleTimer();
     public static int eShipx = 297;
@@ -16,6 +17,7 @@ public class EnemyShip1 extends Actor
      * Act - do whatever the EnemyShip1 wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
+    //Sets the images size.
     public EnemyShip1()
     {
         GreenfootImage image = getImage();
@@ -23,6 +25,7 @@ public class EnemyShip1 extends Actor
         setImage(image);
     }
 
+    //Uses classes that allow the enemy ship to move and be killed by the player via laser. Also sets up timer for class below.
     public void act()
     {
         eShipx = getX();
@@ -33,7 +36,9 @@ public class EnemyShip1 extends Actor
         destroy();
 
     }
-
+    
+    //Allows the enemy ship to die upon being touched by the player's laser. Also shows an explosion animation upon being destroyed.
+    //Also allows the user's lives to be decreased when the ship reaches the end of the world.
     public void destroy()
     {
 
@@ -63,6 +68,7 @@ public class EnemyShip1 extends Actor
         }
     }
 
+    //Sets the location of the player and gets the coordinates of the enemy ship.
     public void setPlayerLocation(int ex, int ey)
     {
         ex = eShipx;
@@ -79,16 +85,7 @@ public class EnemyShip1 extends Actor
         return ey;
     }
 
-    /*public void creationTimer()
-    {
-
-    if(spawnTimer.millisElapsed() > 1000)
-    {
-    spawnTimer.mark();
-    MyWorld world = (MyWorld) getWorld();
-    world.createShip();
-    }
-    }*/
+    
 
 
 }
