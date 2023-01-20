@@ -22,7 +22,6 @@ public class MyWorld extends World
     GreenfootSound mainTheme = new GreenfootSound("Matthew_Pablo_Orbital_Colossus.mp3");
     GreenfootSound win = new GreenfootSound("Celestialghost8_Victory.mp3");
     SimpleTimer winTimer = new SimpleTimer();
-
     /**
      * Constructor for objects of class MyWorld.
      * 
@@ -85,19 +84,12 @@ public class MyWorld extends World
             int x = Greenfoot.getRandomNumber(600);
             int y = 0;
             addObject(ship3, x, y);
+            winTimer.mark();
         }
 
-        else if(difficulty == 4)
+        else if(totalScore == 3000)
         {
-            removeObject(ship3);
-            win.play();
-
-            if(winTimer.millisElapsed() > 3000)
-            {
-                winTimer.mark();
-                Label winLabel = new Label("You win!", 50);
-                addObject(winLabel, getWidth()/2, getHeight()/2);
-            }
+            mainTheme.pause();
         }
     }
 
@@ -118,28 +110,40 @@ public class MyWorld extends World
         mainTheme.play();
         if(lives == 0)
         {
-            /*Label defeat = new Label("You Lose!", 100);
-            addObject(defeat, getWidth()/2, getHeight()/2);*/
             GameOver gameOver = new GameOver();
             Greenfoot.setWorld(gameOver);
 
             mainTheme.stop();
         }
 
-        if(totalScore >= 5000 && totalScore <= 15000)
+        if(totalScore == 5000 && totalScore < 15000)
         {
             difficulty = 2;
         }
 
-        else if(totalScore > 15000 && totalScore < 25000)
+        else if(totalScore == 15000 && totalScore < 25000)
         {
             difficulty = 3;
         }
 
-        else if(totalScore > 25000)
+        else if(totalScore == 25000)
         {
             difficulty = 4;
+            removeObject(ship3);
             mainTheme.stop();
+            if(winTimer.millisElapsed() >= 2000 && winTimer.millisElapsed() < 3000)
+            {
+                Label winLabel = new Label("You win!", 50);
+                Label escapeLabel = new Label("Press esc to go back to the menu", 30);
+                win.play();
+                addObject(winLabel, getWidth()/2, getHeight()/2);
+                addObject(escapeLabel, getWidth()/2, getHeight()/2 + 30);
+            }
+            if(Greenfoot.isKeyDown("escape"))
+            {
+                Titlescreen title = new Titlescreen();
+                Greenfoot.setWorld(title);
+            }
         }
     }
 

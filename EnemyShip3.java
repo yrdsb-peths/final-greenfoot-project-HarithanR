@@ -49,6 +49,7 @@ public class EnemyShip3 extends Actor
 
         }
         destroy();
+        //winTimer.mark();
         //creationTimer();
     }
 
