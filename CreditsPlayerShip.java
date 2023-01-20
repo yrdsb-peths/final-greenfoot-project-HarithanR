@@ -12,7 +12,7 @@ public class CreditsPlayerShip extends Actor
      * Act - do whatever the CreditsPlayerShip wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    public void act()
+    public CreditsPlayerShip()
     {
         GreenfootImage image = getImage();
         image.scale(image.getWidth() - 680, image.getHeight() - 830);

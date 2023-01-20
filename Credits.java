@@ -24,12 +24,12 @@ public class Credits extends World
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1); 
         addObject(titleLabel, 75, 20);
-        addObject(credits1, 125, 60);
-        addObject(credits2, 150, 100);
-        addObject(credits3, 105, 140);
-        addObject(credits4, 115, 180);
-        addObject(credits5, 125, 220);
-        addObject(leave, 125, 260);
+        addObject(credits1, 118, 60);
+        addObject(credits2, 150, 120);
+        addObject(credits3, 105, 180);
+        addObject(credits4, 115, 240);
+        addObject(credits5, 125, 300);
+        addObject(leave, 190, 360);
         prepare();
     }
 
@@ -115,5 +115,49 @@ public class Credits extends World
         extrasMyWorld10.setLocation(158,101);
         ExtrasMyWorld extrasMyWorld33 = new ExtrasMyWorld();
         addObject(extrasMyWorld33,158,101);
+        extrasMyWorld2.setLocation(279,223);
+        CreditsExplosion creditsExplosion = new CreditsExplosion();
+        addObject(creditsExplosion,279,303);
+        extrasMyWorld2.setLocation(272,177);
+        CreditsEnemyShip1 creditsEnemyShip1 = new CreditsEnemyShip1();
+        addObject(creditsEnemyShip1,252,240);
+        extrasMyWorld3.setLocation(304,283);
+        CreditsEnemyShip3 creditsEnemyShip3 = new CreditsEnemyShip3();
+        addObject(creditsEnemyShip3,409,240);
+        extrasMyWorld2.setLocation(302,179);
+        CreditsEnemyShip2 creditsEnemyShip2 = new CreditsEnemyShip2();
+        addObject(creditsEnemyShip2,328,240);
+        extrasMyWorld2.setLocation(386,182);
+        extrasMyWorld2.setLocation(323,177);
+        extrasMyWorld2.setLocation(342,195);
+        extrasMyWorld2.setLocation(388,212);
+        extrasMyWorld2.setLocation(334,168);
+        extrasMyWorld2.setLocation(403,219);
+        extrasMyWorld2.setLocation(337,179);
+        extrasMyWorld2.setLocation(346,166);
+        extrasMyWorld2.setLocation(228,140);
+        CreditsEnemyLaser creditsEnemyLaser = new CreditsEnemyLaser();
+        addObject(creditsEnemyLaser,220,180);
+        extrasMyWorld2.setLocation(320,142);
+        CreditsPlayerLaser creditsPlayerLaser = new CreditsPlayerLaser();
+        addObject(creditsPlayerLaser,240,182);
+        extrasMyWorld2.setLocation(223,183);
+        extrasMyWorld2.setLocation(241,184);
+        extrasMyWorld3.setLocation(281,302);
+        extrasMyWorld2.setLocation(265,251);
+        extrasMyWorld2.setLocation(351,243);
+        extrasMyWorld6.setLocation(427,246);
+        extrasMyWorld7.setLocation(325,120);
+        CreditsPlayerShip creditsPlayerShip = new CreditsPlayerShip();
+        addObject(creditsPlayerShip,325,120);
+    }
+    
+    public void act()
+    {
+        if(Greenfoot.isKeyDown("c"))
+        {
+            Titlescreen title = new Titlescreen();
+            Greenfoot.setWorld(title);
+        }
     }
 }

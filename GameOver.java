@@ -141,13 +141,16 @@ public class GameOver extends World
             addObject(explosion,getWidth()/2,265); 
         }  
 
-        if(timer.millisElapsed() > 2000 && timer.millisElapsed() < 2200)
+        if(timer.millisElapsed() > 2500 && timer.millisElapsed() < 2700)
         {
             addObject(titleLabel, getWidth()/2, 50);
+            gameOverSound.play();
+        }  
+        
+        if(timer.millisElapsed() > 6000)
+        {
             addObject(restartLabel, getWidth()/2, 100);
             addObject(leaveLabel, getWidth()/2, 150);
-
-            gameOverSound.play();
-        }        
+        }
     }
 }

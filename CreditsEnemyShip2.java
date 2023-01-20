@@ -12,7 +12,7 @@ public class CreditsEnemyShip2 extends Actor
      * Act - do whatever the CreditsEnemyShip2 wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    public void act()
+    public CreditsEnemyShip2()
     {
         GreenfootImage image = getImage();
         image.scale(image.getWidth() - 75, image.getHeight() - 75);
