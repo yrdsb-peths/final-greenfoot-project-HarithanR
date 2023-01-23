@@ -15,7 +15,7 @@ public class Credits extends World
     Label credits3 = new Label("Rawdanitsu:Lasers", 30);
     Label credits4 = new Label("Skorpio:Enemy Ships", 30);
     Label credits5 = new Label("Master484:Explosions", 30);
-    Label leave = new Label("Press c to return to the main menu", 30);
+    Label leave = new Label("Press C to return to the main menu", 30);
     /**
      * Adds previously mentioned lines of text to the world.
      * 
