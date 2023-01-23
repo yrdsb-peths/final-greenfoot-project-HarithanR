@@ -145,6 +145,7 @@ public class MyWorld extends World
             {
                 Titlescreen title = new Titlescreen();
                 Greenfoot.setWorld(title);
+                win.stop();
             }
         }
     }

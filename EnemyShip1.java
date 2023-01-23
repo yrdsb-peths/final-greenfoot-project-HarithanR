@@ -9,10 +9,10 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class EnemyShip1 extends Actor
 {
     //Sets up multiple classes and integers for the code in the classes below.
-    SimpleTimer spawnTimer = new SimpleTimer();
     SimpleTimer tim1 = new SimpleTimer();
     public static int eShipx = 297;
     public static int eShipy = 356;
+    GreenfootSound destroySound = new GreenfootSound("TinyWorlds_explosion.wav");
     /**
      * Act - do whatever the EnemyShip1 wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -53,6 +53,7 @@ public class EnemyShip1 extends Actor
                 world.removeObject(explosion);
             } 
             world.removeObject(this);
+            destroySound.play();
             world.increaseScoreCount();           
             world.createShip();             
         }

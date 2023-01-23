@@ -12,6 +12,7 @@ public class EnemyShip3 extends Actor
     public static int eShipx = 297;
     public static int eShipy = 356;
     SimpleTimer spawnLaser = new SimpleTimer();
+    SimpleTimer tim3 = new SimpleTimer();
     GreenfootSound blastSound = new GreenfootSound("Farfadet46_tir.mp3");
     GreenfootSound destroySound = new GreenfootSound("TinyWorlds_explosion.wav");
     boolean canShoot = true;
@@ -54,8 +55,6 @@ public class EnemyShip3 extends Actor
 
         }
         destroy();
-        //winTimer.mark();
-        //creationTimer();
     }
     
     /*
@@ -69,10 +68,16 @@ public class EnemyShip3 extends Actor
         {
             removeTouching(PlayerLaser.class);
             MyWorld world = (MyWorld) getWorld();
+            ExplosionEnemy explosion = new ExplosionEnemy();
+            world.addObject(explosion,eShipx,eShipy);
+            if(tim3.millisElapsed() > 150)
+            {
+                world.removeObject(explosion);
+            } 
             world.increaseScoreCount();           
             world.createShip();      
-            world.removeObject(this);
             destroySound.play();
+            world.removeObject(this);
         }
 
         else

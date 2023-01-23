@@ -8,6 +8,10 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class EnemyShip2 extends Actor
 {
+    GreenfootSound destroySound = new GreenfootSound("TinyWorlds_explosion.wav");
+    SimpleTimer tim2 = new SimpleTimer();
+    public static int eShipx = 297;
+    public static int eShipy = 356;
     /**
      * Act - do whatever the EnemyShip1 wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -23,8 +27,10 @@ public class EnemyShip2 extends Actor
     //Allows the enemy ship to be move. Also adds class that allows it to be destroyed.
     public void act()
     {
+        eShipx = getX();
+        eShipy = getY();
         setLocation(getX(), getY() + 5);
-        //outOfBounds();
+        tim2.mark();
         destroy2();
 
         
@@ -43,9 +49,17 @@ public class EnemyShip2 extends Actor
         {
             removeTouching(PlayerLaser.class);
             MyWorld world = (MyWorld) getWorld();
+            ExplosionEnemy explosion = new ExplosionEnemy();
+            world.addObject(explosion,eShipx,eShipy);
+            if(tim2.millisElapsed() > 150)
+            {
+                world.removeObject(explosion);
+            } 
+            destroySound.play();
             world.removeObject(this);
             world.increaseScoreCount();
-            world.createShip();             
+            world.createShip();  
+            
         }
         else
         {

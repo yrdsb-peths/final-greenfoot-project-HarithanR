@@ -130,6 +130,7 @@ public class GameOver extends World
         {
             MyWorld world = new MyWorld();
             Greenfoot.setWorld(world);
+            gameOverSound.stop();
         }
         
         //Sends the player to the main menu.
@@ -137,6 +138,7 @@ public class GameOver extends World
         {
             Titlescreen menu = new Titlescreen();
             Greenfoot.setWorld(menu);
+            gameOverSound.stop();
         }
         
         //The following series of code is used to play the game over cutscene.
