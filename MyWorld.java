@@ -123,12 +123,12 @@ public class MyWorld extends World
             difficulty = 2;
         }
 
-        else if(totalScore == 15000 && totalScore < 25000)
+        else if(totalScore == 15000 && totalScore < 30000)
         {
             difficulty = 3;
         }
 
-        else if(totalScore == 25000)
+        else if(totalScore == 30000)
         {
             difficulty = 4;
             removeObject(ship3);
